@@ -12,13 +12,16 @@ linking(){
 }
 
 linking "$myloc/hypr" "$HOME/.config/"
+linking "$myloc/waybar" "$HOME/.config/"
 linking "$myloc/wpg" "$HOME/.config/"
 linking "$myloc/foot" "$HOME/.config/"
+linking "$myloc/mako" "$HOME/.config/"
 linking "$myloc/zathura" "$HOME/.config/"
 linking "$myloc/btop" "$HOME/.config/"
 linking "$myloc/wlogout" "$HOME/.config/"
 linking "$myloc/rofi" "$HOME/.config/"
 linking "$myloc/yay" "$HOME/.config/"
+linking "$myloc/neofetch" "$HOME/.config/"
 
 mkdir -p "$HOME/.themes/"
 [ -d "$HOME/.themes/FlatColor" ] && rm -rf "$HOME/.themes/FlatColor"

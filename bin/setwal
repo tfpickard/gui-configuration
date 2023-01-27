@@ -7,9 +7,12 @@
   exit
 }
 WALLPATH="$HOME/Pictures/wallpapers"
+killall -q setwal
 check(){
   command -v $1 1>/dev/null
 }
+rootmgr="sudo"
+check doas && rootmgr="doas"
 
 notify(){
   check notify-send && {
@@ -76,13 +79,20 @@ oomox(){
   }
 }
 
+ifsddm(){
+  [ -d /usr/share/sddm/themes/sugar-candy/Backgrounds ] && {
+    $rootmgr /usr/bin/cp "$imgPath" /usr/share/sddm/themes/sugar-candy/Backgrounds/bg.jpg
+  }
+}
+
 wpg-settings(){
   oomox
   check pywalfox && pywalfox update
   check wal-telegram && wal-telegram --wal -r -g
   check pywal-discord && pywal-discord
   check mako && makoctl reload
-  hyprctl reload
+  check hyprctl && hyprctl reload
+  ifsddm
 }
 
 check wpg && {

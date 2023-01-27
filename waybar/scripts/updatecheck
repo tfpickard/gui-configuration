@@ -1,0 +1,37 @@
+#!/bin/bash
+
+notify(){
+  hash notify-send 2>/dev/null && {
+    notify-send "$@"
+    return
+  }
+  echo "$@"
+}
+
+hash checkupdates-with-aur 2>/dev/null || {
+  cat << EOF
+  {"text":"","tooltip":"checkupdates-with-aur is not installed"}
+EOF
+  exit 1
+}
+
+killall -q checkupdates-with-aur
+tooltip="<b>UPDATES (arch+aur)</b>\n"
+IFS=$'\n'$'\r'
+updates=($(checkupdates-with-aur))
+spanopen="<span color='#00ff00'>"
+spanclose="</span>"
+text=${#updates[@]}
+[ $text -eq 0 ] && text="" || {
+  spanopen+="  "
+  spanopen+="$spanclose"
+  text+="$spanopen"
+}
+
+for i in ${updates[@]}
+do
+  tooltip+="$i\n"
+done
+cat << EOF
+{ "text":"$text", "tooltip":"$tooltip"}  
+EOF

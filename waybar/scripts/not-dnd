@@ -1,0 +1,34 @@
+#!/bin/bash
+
+hash makoctl 2>/dev/null || exit
+
+notify(){
+  hash notify-send 2>/dev/null && {
+    notify-send "$@"
+  }
+}
+
+
+state="$(makoctl mode | sed -z 's/\n/ /g')"
+
+toggle(){
+  [[ "$state" == *"disturb"* ]] && {
+    notify "Notification on"
+    makoctl mode -r "do-not-disturb"
+  } || {
+    notify "DND on"
+    makoctl mode -a "do-not-disturb" 
+  }
+}
+
+[ $# -eq 1 ] && {
+  [[ "$state" == *"disturb"* ]] && {
+    output='{"text":"","tooltip":"DND"}'
+  } || {
+    output='{"text":"","tooltip":"Notification Enabled"}'
+  }
+  echo "$output"
+} || toggle &>/dev/null
+
+pkill -SIGRTMIN+3 waybar
+
