@@ -1,0 +1,18 @@
+configuration {
+	font:							    "Comic Code Ligatures 12";
+  show-icons:           true;
+  drun-display-format:  "{name}";
+	hide-scrollbar: 			true;
+	sidebar-mode: 				false;
+  kb-remove-to-eol:     "Control+p";
+  kb-secondary-copy:    "Control+c";
+  kb-accept-entry:      "Return";
+  kb-row-up:            "Control+k";
+  kb-row-down:          "Control+j";
+  hover-select:         true;
+  me-select-entry:      "";
+  me-accept-entry:      [MousePrimary,MouseSecondary];
+}
+
+@theme "./themes/custom.rasi"
+

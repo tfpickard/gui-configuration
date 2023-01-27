@@ -1,0 +1,27 @@
+max-visible=5
+sort=-time
+layer=top
+anchor=bottom-right
+background-color=#18131200
+text-color=#cfdcd9
+width=300
+height=200
+border-size=0
+border-color=#9AA09C
+border-radius=5
+text-alignment=center
+progress-color=over #9AA09C
+icons=1
+max-icon-size=64
+icon-path=/usr/share/icons/la-capitaine/:/usr/share/icons/la-capitaine/devices/scalable/
+default-timeout=2400
+ignore-timeout=0
+group-by=none
+invisible=0
+on-button-middle=exec makoctl menu -n "$id" bemenu -p 'Select action: '
+on-button-right=exec makoctl menu -n "$id" $HOME/Downloads/temp/test.sh
+format= <b>%s</b>\n%b
+
+[mode=do-not-disturb]
+invisible=1
+on-notify=none

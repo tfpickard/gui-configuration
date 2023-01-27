@@ -1,0 +1,32 @@
+#!/bin/bash
+
+hash swayidle 2>/dev/null || exit 0
+hash swaylock 2>/dev/null || exit 0
+
+hash sway-audio-idle-inhibit 2>/dev/null && {
+  exec sway-audio-idle-inhibit &>/dev/null &
+}
+
+killall -q swayidle
+killall -q swaylock
+
+LOCK_TIME=${LOCK_TIME:-150}
+SCRN_TIME=$((LOCK_TIME + 50))
+SUSPEND_TIME=${SUSPEND_TIME:-150}
+SUSPEND_TIME=$((SUSPEND_TIME + SCRN_TIME))
+
+lock="swaylock -f"
+unlock="killall -q swaylock"
+suspend="systemctl suspend"
+
+[ -f "$HOME/bin/lock" ] && lock="$HOME/bin/lock"
+
+swayidle -w \
+before-sleep "$lock" \
+lock "$lock" \
+unlock "$unlock" \
+timeout $LOCK_TIME "loginctl lock-session" \
+timeout $SCRN_TIME "hyprctl dispatch dpms off" resume "hyprctl dispatch dpms on" \
+timeout $SUSPEND_TIME "$suspend" &>/dev/null &
+
+

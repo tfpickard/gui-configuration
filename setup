@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+echo ">>>>>>No checks are placed!!<<<<<<<<"
+echo ""
+
+myloc="$(dirname $(realpath ${BASH_SOURCE[@]:-0}))"
+
+linking(){
+  echo "$1 -> $2"
+  ln -sf "$1" "$2"
+  echo ""
+}
+
+linking "$myloc/hypr" "$HOME/.config/"
+linking "$myloc/wpg" "$HOME/.config/"
+linking "$myloc/foot" "$HOME/.config/"
+linking "$myloc/zathura" "$HOME/.config/"
+linking "$myloc/btop" "$HOME/.config/"
+linking "$myloc/wlogout" "$HOME/.config/"
+linking "$myloc/rofi" "$HOME/.config/"
+linking "$myloc/yay" "$HOME/.config/"
+
+mkdir -p "$HOME/.themes/"
+[ -d "$HOME/.themes/FlatColor" ] && rm -rf "$HOME/.themes/FlatColor"
+linking "$myloc/FlatColor" "$HOME/.themes/"
+
+linking "$myloc/bin" "$HOME/"

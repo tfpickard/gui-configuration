@@ -1,0 +1,62 @@
+/*-*- mode: css; -*-*/
+
+* {
+  color0:		#181312;
+  color1:		#758E97;
+  color2:		#9AA09C;
+  color3:		#90AFB3;
+  color4:		#B5BEB4;
+  color5:		#D4CCB6;
+  color6:		#A0C5C4;
+  color7:		#cfdcd9;
+  color8:		#909a97;
+  color9:		#758E97;
+  color10:	#9AA09C;
+  color11:	#90AFB3;
+  color12:	#B5BEB4;
+  color13:	#D4CCB6;
+  color14:	#A0C5C4;
+  color15:	#cfdcd9;
+  active:		#a9a391;
+  inactive:	#747064;
+
+  background:						@color0;
+  foreground:						@color15;
+
+  background-color:		  @background;
+  border-color:					@background;
+  separatorcolor:			  @color8;
+  scrollbar-handle:			@color9;
+
+  normal-background:	    			@background;
+  normal-foreground:		    		@foreground;
+  alternate-normal-background:	@background;
+  alternate-normal-foreground:	@foreground;
+  selected-normal-background:		@active;
+  selected-normal-foreground:		@foreground;
+
+  active-background:				    @inactive;
+  active-foreground:				    @foreground;
+  alternate-active-background:	@active;
+  alternate-active-foreground:	@foreground;
+  selected-active-background:		@active;
+  selected-active-foreground:		@foreground;
+
+  urgent-background:				    @color8;
+  urgent-foreground:				    @color15;
+  alternate-urgent-background:	@color8;
+  alternate-urgent-foreground:	@color15;
+  selected-urgent-background:		@color14;
+  selected-urgent-foreground:		@foreground;
+
+  /* theme-cus */ 
+
+  al:   #18131200;
+  bg:   #181312BF;
+  bga:  #181312FF;
+  fg:   #cfdcd9FF;
+  ac:   #758E97;
+  se:   #D4CCB61A;
+  dbg:  #18131202;
+
+}

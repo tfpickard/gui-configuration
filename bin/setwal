@@ -1,0 +1,95 @@
+#!/usr/bin/env bash
+
+# This script will set wallpaper and perform extra on user ask.
+[ $XDG_SESSION_TYPE = "wayland" ] || {
+  echo "This script is for wayland session."
+  echo "\$XDG_SESSION_TYPE is not wayland" 
+  exit
+}
+WALLPATH="$HOME/Pictures/wallpapers"
+check(){
+  command -v $1 1>/dev/null
+}
+
+notify(){
+  check notify-send && {
+    notify-send \
+      --hint=string:x-dunst-stack-tag:wallpaper \
+      "$@"
+  } || {
+    echo "$@"
+  }
+}
+
+swwwSet(){
+  SWWW_TRANSITION_FPS=60
+  SWWW_TRANSITION_STEP=12
+  swww init &>/dev/null
+  swww img "$1"
+}
+
+getImage(){
+  IFS=$'\n'$'\r'
+  wallpath="${WALLPATH:-$HOME/Pictures/wallpapers/}"
+  arr=($(find $wallpath -type f \( -iname '*.PNG' -o -iname '*.JPG' -o -iname '*.JPEG' \)))
+  echo "$(realpath ${arr[RANDOM%${#arr[@]}]})"
+}
+
+check wbg && setCmd="wbg"
+check swww && setCmd="swwwSet"
+
+[ -z $setCmd ] && {
+  echo "Make sure wbg or swww is installed."
+  exit 1
+}
+
+[ $# -gt 1 ] && {
+  echo "Invalid Args"
+  echo "If image name Contains space wrap it in \"name\" "
+}
+
+[ $# -eq 1 ] && {
+  file "$1" | grep -qE 'image|bitmap' && {
+    imgPath="$(realpath $1)"
+  }
+}
+[ -z $imgPath ] && imgPath=$(getImage)
+$setCmd $imgPath && {
+  notify "Image setted successfully" -i "$imgPath"
+}
+
+# extra
+
+oomox(){
+  check sassc || {
+    echo "sassc not installed"
+    return
+  }
+  check bc || {
+    echo "bc not installed"
+    return
+  }
+  [ -f "$HOME/work/oomox-gtk-theme/change_color.sh" ] && {
+    $HOME/work/oomox-gtk-theme/change_color.sh -o oomox-gtk-nik-theme <(echo -e $(cat ~/.config/wpg/templates/oomox | sed 's/#//g'))
+  } || {
+    echo "Dir is not cloned in $HOME/work"
+  }
+}
+
+wpg-settings(){
+  oomox
+  check pywalfox && pywalfox update
+  check wal-telegram && wal-telegram --wal -r -g
+  check pywal-discord && pywal-discord
+  check mako && makoctl reload
+  hyprctl reload
+}
+
+check wpg && {
+  notify "Generating Colorscheme... " -i "$imgPath"
+  killall -q wpg
+  wpg -ns "$imgPath"
+  notify "Generated Colorscheme" -i "$imgPath"
+  wpg-settings
+  notify "Setted all Extra Stuff" "Whole system Refactored" -i "$imgPath"
+}

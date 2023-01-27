@@ -1,0 +1,13 @@
+#!/bin/sh
+
+[ $# -eq 0 ] && exit
+
+command="$@"
+bin=$(echo "$command" | awk '{print $1}')
+
+pgrep -x $bin &>/dev/null && {
+  killall -q "$bin"
+  exit 0
+}
+
+$command

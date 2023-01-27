@@ -1,0 +1,29 @@
+#!/bin/python3
+
+'''
+This script spits out the class and pid of the process running in hyprland
+Uses hyprctl.
+'''
+
+import json
+import sys
+import subprocess
+
+command=subprocess.run("hyprctl clients -j",shell=True,capture_output=True,check=True,text=True)
+
+datali=json.loads(command.stdout)
+data=[]
+for i in datali:
+    data.append((i["class"],str(i["pid"]),i["title"]))
+
+string='\n'.join([' - '.join(x) for x in data])
+try:
+    command=subprocess.run(f'echo "{string}" | rofi -dmenu -i',shell=True,capture_output=True,check=True,text=True)
+    selectedPid=command.stdout.split(' - ')[1]
+    objdata=[ i for i in datali if i["pid"] == int(selectedPid) ]
+    if len(sys.argv) == 2 and sys.argv[1] == "-f":
+        print([objdata[0],command.stdout])
+    else:
+        print(f"{command.stdout}",end="")
+except:
+    sys.exit(0)
