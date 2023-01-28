@@ -12,6 +12,7 @@ configuration {
   hover-select:         true;
   me-select-entry:      "";
   me-accept-entry:      [MousePrimary,MouseSecondary];
+  icon-theme:           "la-capitaine";
 }
 
 @theme "./themes/custom.rasi"

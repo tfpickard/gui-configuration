@@ -22,6 +22,10 @@ linking "$myloc/wlogout" "$HOME/.config/"
 linking "$myloc/rofi" "$HOME/.config/"
 linking "$myloc/yay" "$HOME/.config/"
 linking "$myloc/neofetch" "$HOME/.config/"
+linking "$myloc/MangoHud" "$HOME/.config/"
+linking "$myloc/udiskie" "$HOME/.config/"
+mkdir -p Mailspring/packages
+linking "$myloc/minimal-dark" "$HOME/.config/Mailspring/packages"
 
 mkdir -p "$HOME/.themes/"
 [ -d "$HOME/.themes/FlatColor" ] && rm -rf "$HOME/.themes/FlatColor"

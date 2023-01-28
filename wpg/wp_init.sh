@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-wpg -nrs '/home/niksingh710/Pictures/wallpapers/low-poly-3006874-2560x1440.jpg' '/home/niksingh710/Pictures/wallpapers/low-poly-3006874-2560x1440.jpg'
+wpg -nrs '/home/niksingh710/Pictures/wallpapers/purple-aura-wallpaper-for-2880x1800-60-485.jpg' '/home/niksingh710/Pictures/wallpapers/purple-aura-wallpaper-for-2880x1800-60-485.jpg'

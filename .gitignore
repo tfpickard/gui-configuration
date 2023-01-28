@@ -2,3 +2,8 @@ wpg/sequences
 wpg/templates/
 wpg/samples
 wpg/schemes
+btop/themes/btop.theme
+rofi/themes/colors.rasi
+wlogout/colors-gtk.css
+wpg/.current
+zathura/zathurarc

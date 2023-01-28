@@ -16,9 +16,9 @@ gnome-settings(){
   theme="FlatColor"
   [ -d "$HOME/.themes/oomox-gtk-nik-theme" ] && theme="oomox-gtk-nik-theme"
   $cmd gtk-theme "$theme"
-  $cmd icon-theme 'la-capitaine'
-  $cmd cursor-theme 'GoogleDot-Black'
-  $cmd font-name 'Comic Code Ligatures Nerd Font'
+  $cmd icon-theme "la-capitaine"
+  $cmd cursor-theme "GoogleDot-Black"
+  $cmd font-name "Comic Code Ligatures Nerd Font"
 }
 gnome-settings
 
