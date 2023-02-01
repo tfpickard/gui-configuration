@@ -1,0 +1,10 @@
+[Unit]
+Description=Disable devices as wakeup
+
+[Service]
+User=%i
+ExecStart=/home/%i/binaries/utils/acpi-wakeup-sol
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target
