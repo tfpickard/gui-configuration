@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-wpg -nrs '/home/niksingh710/Pictures/wallpapers/Second/Simplistic/temple-on-mountain-minimal-4k-9z.jpg' '/home/niksingh710/Pictures/wallpapers/Second/Simplistic/temple-on-mountain-minimal-4k-9z.jpg'
+wpg -nrs '/home/niksingh710/Pictures/wallpapers/Second/Simplistic/chlorine as a ghost.jpg' '/home/niksingh710/Pictures/wallpapers/Second/Simplistic/chlorine as a ghost.jpg'

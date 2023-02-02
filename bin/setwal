@@ -25,8 +25,8 @@ notify(){
 }
 
 swwwSet(){
-  SWWW_TRANSITION_FPS=60
-  SWWW_TRANSITION_STEP=12
+  export SWWW_TRANSITION_FPS=60
+  export SWWW_TRANSITION_STEP=5
   swww init &>/dev/null
   swww img "$1"
 }
@@ -52,19 +52,20 @@ check swww && setCmd="swwwSet"
 }
 
 [ $# -eq 1 ] && {
-  path=$(realpath $1)
+  path="$(realpath $1)"
   file "$path" | grep -qE 'image|bitmap' && {
     imgPath="$path"
   }
 }
-[ -z $imgPath ] && imgPath=$(getImage)
-$setCmd $imgPath && {
+[ -z "$imgPath" ] && imgPath="$(getImage)"
+$setCmd "$imgPath" && {
   notify "Image setted successfully" -i "$imgPath"
 }
 
 # extra
 
 oomox(){
+  notify -i "$imgPath" "Creating Gtk Theme OOMOX"
   check sassc || {
     echo "sassc not installed"
     return
@@ -78,6 +79,7 @@ oomox(){
   } || {
     echo "Dir is not cloned in $HOME/work"
   }
+  notify -i "$imgPath" "OMOX Generated"
 }
 
 ifsddm(){

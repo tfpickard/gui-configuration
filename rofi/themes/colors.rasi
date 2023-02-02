@@ -1,24 +1,24 @@
 /*-*- mode: css; -*-*/
 
 * {
-  color0:		#080810;
-  color1:		#DF1F1F;
-  color2:		#E81F22;
-  color3:		#E62021;
-  color4:		#D65D5F;
-  color5:		#A17F85;
-  color6:		#ABA0A0;
-  color7:		#e2dddd;
-  color8:		#9e9a9a;
-  color9:		#DF1F1F;
-  color10:	#E81F22;
-  color11:	#E62021;
-  color12:	#D65D5F;
-  color13:	#A17F85;
-  color14:	#ABA0A0;
-  color15:	#e2dddd;
-  active:		#80656a;
-  inactive:	#584549;
+  color0:		#01061C;
+  color1:		#46AB70;
+  color2:		#51CE79;
+  color3:		#51B088;
+  color4:		#5BD491;
+  color5:		#64FD98;
+  color6:		#6EFCB0;
+  color7:		#b2f4d9;
+  color8:		#7caa97;
+  color9:		#46AB70;
+  color10:	#51CE79;
+  color11:	#51B088;
+  color12:	#5BD491;
+  color13:	#64FD98;
+  color14:	#6EFCB0;
+  color15:	#b2f4d9;
+  active:		#408c6c;
+  inactive:	#2c604a;
 
   background:						@color0;
   foreground:						@color15;
@@ -51,12 +51,12 @@
 
   /* theme-cus */ 
 
-  al:   #08081000;
-  bg:   #080810BF;
-  bga:  #080810FF;
-  fg:   #e2ddddFF;
-  ac:   #DF1F1F;
-  se:   #A17F851A;
-  dbg:  #08081002;
+  al:   #01061C00;
+  bg:   #01061CBF;
+  bga:  #01061CFF;
+  fg:   #b2f4d9FF;
+  ac:   #46AB70;
+  se:   #64FD981A;
+  dbg:  #01061C02;
 
 }

@@ -1,3 +1,4 @@
+# modules for grub to work with secure boot.
 CD_MODULES="
 	all_video
 	boot
