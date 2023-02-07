@@ -1,9 +1,14 @@
 #!/bin/bash
 
-hash swayidle 2>/dev/null || exit 0
-hash swaylock 2>/dev/null || exit 0
+check(){
+  command -v $1 1>/dev/null
+}
 
-hash sway-audio-idle-inhibit 2>/dev/null && {
+check swayidle || exit 0
+check swaylock || exit 0
+
+check sway-audio-idle-inhibit && {
+  killall -q sway-audio-idle-inhibit
   exec sway-audio-idle-inhibit &>/dev/null &
 }
 
@@ -26,7 +31,6 @@ before-sleep "$lock" \
 lock "$lock" \
 unlock "$unlock" \
 timeout $LOCK_TIME "loginctl lock-session" \
-timeout $SCRN_TIME "hyprctl dispatch dpms off" resume "hyprctl dispatch dpms on" \
+timeout $SCRN_TIME "sleep 1 && hyprctl dispatch dpms off" resume "sleep 1 && hyprctl dispatch dpms on" \
 timeout $SUSPEND_TIME "$suspend" &>/dev/null &
-
 

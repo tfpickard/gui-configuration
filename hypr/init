@@ -13,8 +13,8 @@ check cliphist && {
 hyprctl setcursor "GoogleDot-Black" 24 
 gnome-settings(){
   cmd="gsettings set org.gnome.desktop.interface"
-  theme="FlatColor"
-  [ -d "$HOME/.themes/oomox-gtk-nik-theme" ] && theme="oomox-gtk-nik-theme"
+  theme="linea-nord-color"
+  # [ -d "$HOME/.themes/oomox-gtk-nik-theme" ] && theme="oomox-gtk-nik-theme" # not using till linea is good from wpg-install.sh
   $cmd gtk-theme "$theme"
   $cmd icon-theme "la-capitaine"
   $cmd cursor-theme "GoogleDot-Black"
