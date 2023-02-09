@@ -1,9 +1,9 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 state=$(($(hyprctl getoption decoration:blur -j | jq '.int') + $(hyprctl getoption decoration:drop_shadow -j | jq '.int')))
 set=false
-text=""
-tooltip=" "
+text="<span color='#7AA2F7'></span> "
+tooltip="Working with normal state"
 msg="Disabled"
 [ $state -eq 0 ] && {
 	set=true
@@ -21,4 +21,4 @@ EOF
 
 notify-send "Hyprland Saver" "blur:$msg\ndrop_shadow:$msg"
 hyprctl --batch "keywords decoration:blur $set ;keywords decoration:drop_shadow $set"
-pkill -SIGRTMIN+7 waybar
+pkill -SIGRTMIN+5 waybar

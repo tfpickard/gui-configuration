@@ -1,0 +1,95 @@
+{
+  "name": "top-bar",
+  "position": "top",
+  "layer": "top",
+  "modules-left": [
+    "wlr/workspaces",
+  ],
+  "modules-center": [
+    "hyprland/window",
+  ],
+  "modules-right": [
+    "tray",
+    "custom/colorpicker",
+    "gamemode",
+    "custom/updates",
+    "custom/github",
+    "custom/camera",
+    "custom/notifications",
+    "idle_inhibitor",
+    "custom/weather",
+  ],
+  "wlr/workspaces": {
+    "format": "{name}",
+    "active-only": false,
+    "on-click": "activate",
+    "sort-by-number": true
+  },
+  "hyprland/window": {
+    "format": "<span color='red'></span> {} <span color='red'></span>",
+    "separate-outputs": true
+  },
+  "tray": {
+    "spacing": 15,
+    "icon-size": 16,
+  },
+  "custom/colorpicker": {
+    "format": "{}",
+    "return-type": "json",
+    "interval": "once",
+    "exec": "$HOME/.config/waybar/scripts/colpicker/colorpicker -j",
+    "on-click": "sleep 1 && $HOME/.config/waybar/scripts/colpicker/colorpicker",
+    "signal": 1,
+  },
+  "gamemode": {
+    "hide-not-running": true,
+    "icon-spacing": 4,
+    "icon-size": 13,
+    "tooltip": true,
+    "tooltip-format": "Games running: {count}"
+  },
+  "custom/updates": {
+    "format": "{}",
+    "interval": 3600,
+    "exec": "~/.config/waybar/scripts/updatecheck",
+    "return-type": "json",
+    "exec-if": "exit 0",
+    "signal": 8
+  },
+  "custom/github": {
+    "format": "{}  ",
+    "return-type": "json",
+    "interval": 3600,
+    "exec": "$HOME/.config/waybar/scripts/github.sh",
+    "on-click": "xdg-open https://github.com/notifications"
+  },
+  "custom/camera": {
+    "format": "{} ",
+    "interval": "once",
+    "exec": "[ -z \"$(lsmod | grep uvcvideo)\" ] && echo \"\nCamera Disabled\" || echo \"\"",
+    "on-click": "~/.config/waybar/scripts/camera-toggle",
+    "signal": 3,
+  },
+  "custom/notifications": {
+    "format": "<b>{}</b>",
+    "exec": "~/.config/waybar/scripts/not-dnd -j",
+    "on-click": "~/.config/waybar/scripts/not-dnd",
+    "return-type": "json",
+    "interval": "once",
+    "signal": 2,
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    },
+  },
+  "custom/weather": {
+    "format": "{}",
+    "tooltip": true,
+    "interval": 600,
+    "exec": "~/.config/waybar/scripts/wttr.py",
+    "return-type": "json"
+  },
+}

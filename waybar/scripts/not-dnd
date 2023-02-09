@@ -1,11 +1,17 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-hash makoctl 2>/dev/null || exit
+check(){
+  command -v "$1" 1>/dev/null
+}
+
+check makoctl || exit
 
 notify(){
-  hash notify-send 2>/dev/null && {
+  check notify-send && {
     notify-send "$@"
+    return
   }
+  echo "$@"
 }
 
 
@@ -23,12 +29,12 @@ toggle(){
 
 [ $# -eq 1 ] && {
   [[ "$state" == *"disturb"* ]] && {
-    output='{"text":"","tooltip":"DND"}'
+    output='{"text":"","tooltip":"DND"}'
   } || {
-    output='{"text":"","tooltip":"Notification Enabled"}'
+    output='{"text":"","tooltip":"Notification Enabled"}'
   }
   echo "$output"
 } || toggle &>/dev/null
 
-pkill -SIGRTMIN+3 waybar
+pkill -SIGRTMIN+2 waybar
 

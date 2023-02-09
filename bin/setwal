@@ -52,9 +52,9 @@ check swww && setCmd="swwwSet"
 }
 
 [ $# -eq 1 ] && {
-  path="$(realpath $1)"
-  file "$path" | grep -qE 'image|bitmap' && {
-    imgPath="$path"
+  ipath="$(realpath "$1")"
+  file "$ipath" | grep -qE 'image|bitmap' && {
+    imgPath="$ipath"
   }
 }
 [ -z "$imgPath" ] && imgPath="$(getImage)"
@@ -66,7 +66,7 @@ $setCmd "$imgPath" && {
 # extra
 
 oomox(){
-  notify -i "$imgPath" "Creating Gtk Theme OOMOX"
+  notify -i "$imgPath" "Creating Gtk Theme OOMOX" -t 0
   check sassc || {
     echo "sassc not installed"
     return
@@ -80,7 +80,7 @@ oomox(){
   } || {
     echo "Dir is not cloned in $HOME/work"
   }
-  notify -i "$imgPath" "OMOX Generated"
+  notify -i "$imgPath" "OMOX Generated" -t 0
 }
 
 ifffox(){
@@ -96,7 +96,7 @@ ifsddm(){
 }
 
 wpg-settings(){
-  # oomox   # Not using till linea is good from wpg-install.sh
+  oomox   # Not using till linea is good from wpg-install.sh
   check pywalfox && pywalfox update
   check wal-telegram && wal-telegram --wal -r -g
   check pywal-discord && pywal-discord
@@ -108,10 +108,10 @@ wpg-settings(){
 }
 
 check wpg && {
-  notify "Generating Colorscheme... " -i "$imgPath"
+  notify "Generating Colorscheme... " -i "$imgPath" -t 0
   killall -q wpg
   wpg -ns "$imgPath"
-  notify "Generated Colorscheme" -i "$imgPath"
+  notify "Generated Colorscheme" -i "$imgPath" -t 0
   wpg-settings
   notify "Setted all Extra Stuff" "Whole system Refactored" -i "$imgPath"
 }

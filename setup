@@ -24,6 +24,7 @@ linking "$myloc/yay" "$HOME/.config/"
 linking "$myloc/neofetch" "$HOME/.config/"
 linking "$myloc/MangoHud" "$HOME/.config/"
 linking "$myloc/udiskie" "$HOME/.config/"
+linking "$myloc/networkmanager-dmenu" "$HOME/.config/"
 mkdir -p Mailspring/packages
 linking "$myloc/minimal-dark" "$HOME/.config/Mailspring/packages/"
 

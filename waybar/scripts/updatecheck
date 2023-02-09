@@ -1,37 +1,38 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+check(){
+  command -v "$1" 1>/dev/null
+}
 
 notify(){
-  hash notify-send 2>/dev/null && {
+  check notify-send && {
     notify-send "$@"
     return
   }
   echo "$@"
 }
 
-hash checkupdates-with-aur 2>/dev/null || {
+check checkupdates-with-aur || {
   cat << EOF
-  {"text":"","tooltip":"checkupdates-with-aur is not installed"}
+  {"text":"ERR","tooltip":"checkupdates-with-aur is not installed"}
 EOF
   exit 1
 }
+IFS=$'\n'$'\r'
 
 killall -q checkupdates-with-aur
-tooltip="<b>UPDATES (arch+aur)</b>\n"
-IFS=$'\n'$'\r'
-updates=($(checkupdates-with-aur))
-spanopen="<span color='#00ff00'>"
-spanclose="</span>"
-text=${#updates[@]}
-[ $text -eq 0 ] && text="" || {
-  spanopen+="  "
-  spanopen+="$spanclose"
-  text+="$spanopen"
-}
+mapfile -t updates < <(checkupdates-with-aur)
 
-for i in ${updates[@]}
+text=${#updates[@]}
+tooltip="<b>$text updates (arch+aur) </b>\n"
+
+[ "$text" -eq 0 ] && text="" || text=""
+
+for i in "${updates[@]}"
 do
   tooltip+="$i\n"
 done
+
 cat << EOF
 { "text":"$text", "tooltip":"$tooltip"}  
 EOF
