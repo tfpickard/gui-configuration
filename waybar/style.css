@@ -45,6 +45,7 @@ tooltip,
 #pulseaudio,
 #cpu,
 #custom-cputemp,
+#custom-dinfo,
 #workspaces,
 #window {
   background: shade(alpha(@background,.8),.5);
@@ -60,21 +61,27 @@ tooltip,
 #pulseaudio {
   margin-right: 2px;
 }
+
 /* Left side margin */
 #battery,
+#custom-dinfo,
 #cpu,
 #memory {
   margin-left: 2px;
 }
+
 /* Right Border flat */
 #custom-colorpicker,
+#custom-dinfo,
 #cpu,
 #pulseaudio.mic,
 #memory {
   border-radius: 8px 0 0 8px;
 }
+
 /* Left Border flat */
 #disk,
+#workspaces,
 #custom-cputemp,
 #custom-batterysaver,
 #pulseaudio,
@@ -119,9 +126,6 @@ tooltip,
   color: shade(@background,.5);
 }
 
-#workspaces {
-  margin: 0 4px;
-}
 #workspaces button{
   padding: 0 4px;
   margin: 0;
@@ -172,9 +176,19 @@ tooltip,
   color: @background;
 }
 
+#custom-batterysaver.powersave {
+  color: #a6e3a1;
+}
+#custom-batterysaver.default {
+  color: #7AA2F7;
+}
+#custom-batterysaver.performance {
+  color: #D78787;
+}
+
 #backlight {
-  /* color: #ed8796; */
-  color: @active;
+  color: #D78787;
+  /* color: @active; */
 }
 
 #pulseaudio{

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+state=$(($(hyprctl getoption decoration:blur -j | jq '.int') + $(hyprctl getoption decoration:drop_shadow -j | jq '.int')))
+set=false
+text="<span color='#7AA2F7'></span> "
+tooltip="Working with normal state"
+msg="Disabled"
+[ $state -eq 0 ] && {
+	set=true
+	msg="Enabled"
+	text="<span color='#00ff00'></span> "
+	tooltip="<b>Hyprland battery Saver!!</b>\nThis will disable blur and drop_shadow"
+}
+
+[ $# -eq 1 ] && {
+	cat <<EOF
+  { "text":"$text", "tooltip":"$tooltip"}
+EOF
+	exit
+}
+
+notify-send "Hyprland Saver" "blur:$msg\ndrop_shadow:$msg"
+hyprctl --batch "keywords decoration:blur $set ;keywords decoration:drop_shadow $set"
+pkill -SIGRTMIN+5 waybar

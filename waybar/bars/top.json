@@ -3,6 +3,7 @@
   "position": "top",
   "layer": "top",
   "modules-left": [
+    "custom/dinfo",
     "wlr/workspaces",
   ],
   "modules-center": [
@@ -19,6 +20,12 @@
     "idle_inhibitor",
     "custom/weather",
   ],
+  "custom/dinfo": {
+    "interval": 60,
+    "format": "",
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/dinfo",
+  },
   "wlr/workspaces": {
     "format": "{name}",
     "active-only": false,

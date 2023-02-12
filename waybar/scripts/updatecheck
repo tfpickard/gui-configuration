@@ -24,7 +24,7 @@ killall -q checkupdates-with-aur
 mapfile -t updates < <(checkupdates-with-aur)
 
 text=${#updates[@]}
-tooltip="<b>$text updates (arch+aur) </b>\n"
+tooltip="<b>$text  updates (arch+aur) </b>\n"
 
 [ "$text" -eq 0 ] && text="" || text=""
 

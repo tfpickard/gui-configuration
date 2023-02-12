@@ -1,12 +1,12 @@
 [
   {
     "include": [
-      "~/.config/waybar/top.json",
+      "~/.config/waybar/bars/top.json",
     ],
   },
   {
     "include": [
-      "~/.config/waybar/bottom.json",
+      "~/.config/waybar/bars/bottom.json",
     ],
   }
 ]

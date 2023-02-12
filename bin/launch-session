@@ -32,6 +32,7 @@ hyprvariables(){
   export GDK_BACKEND="wayland,x11"
 
   # Enabling firefox wayland
+  export BROWSER=firefox
   export MOZ_ENABLE_WAYLAND=1
 
 }

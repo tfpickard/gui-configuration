@@ -40,12 +40,13 @@
       ""
     ],
     "tooltip-format": "{timeTo}\n{capacity} % | {power} W",
-    "on-click": "~/.config/waybar/scripts/battsaver-toggle"
   },
   "custom/batterysaver": {
     "format": "{}",
-    "exec": "~/.config/waybar/scripts/battsaver-toggle -j",
-    "on-click": "~/.config/waybar/scripts/battsaver-toggle",
+    "exec": "~/.config/waybar/scripts/battsaver-toggle getdata",
+    "on-click": "~/.config/waybar/scripts/battsaver-toggle save",
+    "on-click-right": "~/.config/waybar/scripts/battsaver-toggle default",
+    "on-click-middle": "~/.config/waybar/scripts/battsaver-toggle performance",
     "interval": "once",
     "return-type": "json",
     "signal": 5,
@@ -61,11 +62,11 @@
     "return-type": "json",
   },
   "memory": {
-    "format": "{}% "
+    "format": "{}% "
   },
   "disk": {
     "interval": 600,
-    "format": " {percentage_used}% ",
+    "format": "{percentage_used}% ",
     "path": "/"
   },
   "clock": {

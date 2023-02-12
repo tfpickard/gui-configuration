@@ -41,17 +41,17 @@ getdata(){
   text="<b></b>"
   tooltip=""
   state=""
+  check auto-cpufreq && {
+    state="$(auto-cpufreq --get-state)"
+    tooltip+="auto-cpufreq: $state"
+  }
   check hyprctl && {
     blur=$(hyprctl getoption decoration:blur -j | jq '.int')
     shadow=$(hyprctl getoption decoration:drop_shadow -j | jq '.int')
-    tooltip+="<b>Hyprland:\n</b>"
+    tooltip+="<b>Hyprland:</b>"
     [ "$blur" -eq 1 ] && blur="enabled" || blur="disabled"
     [ "$shadow" -eq 1 ] && shadow="enabled" || shadow="disabled"
-    tooltip+="Blur: $blur\nShadow: $shadow\n\n"
-  }
-  check auto-cpufreq && {
-    state="$(auto-cpufreq --get-state)"
-    tooltip+="<b>Auto Cpufreq:\n</b>auto-cpufreq: $state"
+    tooltip+="Blur: $blur\nShadow: $shadow"
   }
   class="$state"
   cat << EOF
@@ -71,4 +71,3 @@ EOF
 [[ "$1" = *"getdata"* ]] && {
   getdata
 }
-pkill -SIGRTMIN+5 waybar
