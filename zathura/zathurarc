@@ -1,10 +1,10 @@
-set highlight-color             "#736f64"
-set highlight-active-color      "#b9cac2"
+set highlight-color             "#8b7194"
+set highlight-active-color      "#f3ddd4"
 
-set default-bg                  "#122225"
-set default-fg                  "#b9cac2"
-set recolor-lightcolor          "#122225"
-set recolor-darkcolor           "#b9cac2"
+set default-bg                  "#151433"
+set default-fg                  "#f3ddd4"
+set recolor-lightcolor          "#151433"
+set recolor-darkcolor           "#f3ddd4"
 
 set scroll-page-aware "true"
 set scroll-full-overlap 0.01

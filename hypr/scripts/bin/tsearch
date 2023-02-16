@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-loc=$(dirname $(realpath ${BASH_SOURCE:-0}))
+loc=$(dirname "$(realpath "${BASH_SOURCE:-0}")")
 
 [ -f "$loc/../get-client" ] || exit
 hash rofi 2>/dev/null || exit
@@ -11,9 +11,11 @@ killall -q rofi && exit
 out=$("$loc/../get-client" | awk '{print $3}')
 
 [ -z "$out" ] || {
-  hyprctl dispatch focuswindow "pid:$out"
-  [ $(hyprctl activewindow -j | jq '.floating') = true ] && {
-    echo working
-    hyprctl dispatch bringactivetotop none
-  }
+	hyprctl dispatch focuswindow "pid:$out"
+	[ "$(hyprctl activewindow -j | jq '.floating')" = true ] && {
+		echo working
+		hyprctl dispatch bringactivetotop none
+	}
 }
+
+# vim: ft=sh
