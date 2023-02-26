@@ -1,46 +1,48 @@
 #!/usr/bin/env sh
 
 [ $# -eq 0 ] || {
-  echo "No argument is accepted."
-  echo "Please remove arguments!!"
-  exit 1
+	echo "No argument is accepted."
+	echo "Please remove arguments!!"
+	exit 1
 }
 
-hyprvariables(){
-  
-  [ -f "$HOME/.config/shell/path" ] && . "$HOME/.config/shell/path"
+hyprvariables() {
 
-  # GTK variables
-  export GTK_THEME="linea-nord-color"
-  # export GTK_THEME="oomox-gtk-nik-theme"
+	[ -f "$HOME/.config/shell/path" ] && . "$HOME/.config/shell/path"
 
-  # XDG
-  export XDG_CURRENT_DESKTOP=Hyprland
-  export XDG_SESSION_TYPE=wayland
-  export XDG_SESSION_DESKTOP=Hyprland
+	# GTK variables
+	export GTK_THEME="linea-nord-color"
+	export XCURSOR_SIZE=16
+	export XCURSOR_THEME="GoogleDot-Black"
+	# export GTK_THEME="oomox-gtk-nik-theme"
 
-  # QT
-  export QT_AUTO_SCREEN_SCALE_FACTOR=1
-  # export QT_QPA_PLATFORM="wayland;xcb"    # Not yet working for onlyoffice-editor
-  export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-  export QT_QPA_PLATFORMTHEME=qt5ct
+	# XDG
+	export XDG_CURRENT_DESKTOP=Hyprland
+	export XDG_SESSION_TYPE=wayland
+	export XDG_SESSION_DESKTOP=Hyprland
 
-  # Toolkit
-  export SDL_VIDEODRIVER=wayland
-  export _JAVA_AWT_WM_NONEREPARENTING=1
-  export CLUTTER_BACKEND="wayland"
-  export GDK_BACKEND="wayland,x11"
+	# QT
+	export QT_AUTO_SCREEN_SCALE_FACTOR=1
+	# export QT_QPA_PLATFORM="wayland;xcb"    # Not yet working for onlyoffice-editor
+	export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+	export QT_QPA_PLATFORMTHEME=qt5ct
 
-  # Enabling firefox wayland
-  export BROWSER=firefox
-  export MOZ_ENABLE_WAYLAND=1
+	# Toolkit
+	export SDL_VIDEODRIVER=wayland
+	export _JAVA_AWT_WM_NONEREPARENTING=1
+	export CLUTTER_BACKEND="wayland"
+	export GDK_BACKEND="wayland,x11"
+
+	# Enabling firefox wayland
+	export BROWSER=firefox
+	export MOZ_ENABLE_WAYLAND=1
 
 }
 
 command -v Hyprland 1>/dev/null && {
-  hyprvariables
-  Hyprland
+	hyprvariables
+	Hyprland
 } || {
-  echo "Hyprland is not available!!"
-  exit 1
+	echo "Hyprland is not available!!"
+	exit 1
 }

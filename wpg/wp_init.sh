@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-wpg -nrs '/home/niksingh710/Pictures/wallpapers/First/dropside-the-valley-ultrawide-gradient-landscape.png' '/home/niksingh710/Pictures/wallpapers/First/dropside-the-valley-ultrawide-gradient-landscape.png'
+wpg -nrs '/home/niksingh710/Pictures/wallpapers/Second/Nature/Landscapes/united_states/matador_rocks.jpg' '/home/niksingh710/Pictures/wallpapers/Second/Nature/Landscapes/united_states/matador_rocks.jpg'

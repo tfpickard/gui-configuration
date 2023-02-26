@@ -7,12 +7,13 @@ configuration {
   kb-remove-to-eol:     "Control+p";
   kb-secondary-copy:    "Control+c";
   kb-accept-entry:      "Return";
-  kb-row-up:            "Control+k";
-  kb-row-down:          "Control+j";
+  kb-row-up:            "Up,Control+k";
+  kb-row-down:          "Down,Control+j";
   hover-select:         true;
   me-select-entry:      "";
   me-accept-entry:      [MousePrimary,MouseSecondary];
   icon-theme:           "la-capitaine";
+  terminal:             "foot";
 }
 
 @theme "./themes/custom.rasi"
