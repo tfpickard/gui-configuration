@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-wpg -nrs '/home/niksingh710/Pictures/wallpapers/Second/Nature/Landscapes/united_states/matador_rocks.jpg' '/home/niksingh710/Pictures/wallpapers/Second/Nature/Landscapes/united_states/matador_rocks.jpg'
+wpg -nrs '/home/niksingh710/Pictures/wallpapers/PersonalWalls/purple-cat.jpg' '/home/niksingh710/Pictures/wallpapers/PersonalWalls/purple-cat.jpg'

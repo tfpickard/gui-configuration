@@ -159,7 +159,7 @@
         ""
       ]
     },
-    "on-click": "pavucontrol",
+    "on-click": "myxer",
     "on-scroll-down": "~/bin/volume up",
     "on-scroll-up": "~/bin/volume down",
     "smooth-scrolling-threshold": 1,
