@@ -5,10 +5,10 @@ echo ""
 
 myloc="$(dirname $(realpath ${BASH_SOURCE[@]:-0}))"
 
-linking(){
-  echo "$1 -> $2"
-  ln -sf "$1" "$2"
-  echo ""
+linking() {
+	echo "$1 -> $2"
+	ln -sf "$1" "$2"
+	echo ""
 }
 
 linking "$myloc/hypr" "$HOME/.config/"
@@ -24,6 +24,10 @@ linking "$myloc/yay" "$HOME/.config/"
 linking "$myloc/neofetch" "$HOME/.config/"
 linking "$myloc/MangoHud" "$HOME/.config/"
 linking "$myloc/udiskie" "$HOME/.config/"
+linking "$myloc/qt5ct" "$HOME/.config/"
+linking "$myloc/qt6ct" "$HOME/.config/"
+linking "$myloc/alacritty" "$HOME/.config/"
+linking "$myloc/gtk-4.0" "$HOME/.config/"
 linking "$myloc/networkmanager-dmenu" "$HOME/.config/"
 mkdir -p Mailspring/packages
 linking "$myloc/minimal-dark" "$HOME/.config/Mailspring/packages/"

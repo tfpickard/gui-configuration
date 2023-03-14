@@ -1,17 +1,15 @@
 #!/bin/bash
 
-hyprctl keywords windowrule workspace 1 silent,foot
-hyprctl keywords windowrule workspace 2 silent,firefox
+# hyprctl keywords windowrule workspace 1 silent,foot
+# hyprctl keywords windowrule workspace 2 silent,firefox
 
-arr=(
-  "foot"
-  "firefox"
-)
+# arr=(
+# 	"foot"
+# 	"firefox"
+# )
 
-hyprctl --batch "dispatch exec foot ; dispatch exec firefox"
+# hyprctl --batch "dispatch exec foot ; dispatch exec firefox"
 
-for i in "${arr[@]}"
-do
-  hyprctl keyword windowrule "workspace unset,$i"
-done
-
+# for i in "${arr[@]}"; do
+# 	hyprctl keyword windowrule "workspace unset,$i"
+# done

@@ -130,15 +130,26 @@ extra() {
 	check pywal-discord && pywal-discord
 	check mako && makoctl reload
 	check pywal-discord && pywal-discord
-	check hyprctl && hyprctl reload
+	# check hyprctl && hyprctl reload
 	ifsddm
 	ifffox
 }
 
+gradienceTheme() {
+	check gradience-cli || {
+		err "Gradience Cli not present"
+		return 1
+	}
+
+	notify "Monet Colorscheme... " "Make sure to re run gtk apps to se effect" -i "$_path" -t 0
+	gradience-cli monet -p "$_path" -n wal --theme dark --tone 100
+	gradience-cli apply -n wal --gtk both
+}
+
 wpg-settings() {
-	oomox &>/dev/null & # also generates or qt
+	# oomox &>/dev/null & # also generates or qt
 	# shellcheck disable=SC2015
-	loading && ok "Generated Oomox theme for qt and gtk" || err "Oomox Faced an err."
+	# loading && ok "Generated Oomox theme for qt and gtk" || err "Oomox Faced an err."
 	extra &>/dev/null &
 	# shellcheck disable=SC2015
 	loading && ok "Extra All went Fine" || err "Extra Failed..."
@@ -193,6 +204,11 @@ $_cmd "$_path" && {
 	ln -sf "$_path" ~/.wallpaper
 }
 $skip && exit 0
+
+# Holding gradience till tone comes in and fixed border for linea so good to me
+# gradienceTheme &>/dev/null & # also generates or qt
+# shellcheck disable=SC2015
+# loading && ok "Generated Monet theme for gtk" || err "Gradience Faced an err."
 
 wpgFn &>/dev/null &
 # shellcheck disable=SC2015

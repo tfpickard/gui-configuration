@@ -1,24 +1,26 @@
 #!/usr/bin/env bash
 
-check(){
-  command -v "$1" 1>/dev/null
+check() {
+	command -v "$1" 1>/dev/null
 }
 
 check cliphist && {
-  (( $(cliphist list | wc -l) > 100 )) && {
-    [ -f "$HOME/.cache/cliphist/db" ] && rm ~/.cache/cliphist/db
-  }
+	(($(cliphist list | wc -l) > 100)) && {
+		[ -f "$HOME/.cache/cliphist/db" ] && rm ~/.cache/cliphist/db
+	}
 }
 
-hyprctl setcursor "GoogleDot-Black" 24 
-gnome-settings(){
-  cmd="gsettings set org.gnome.desktop.interface"
-  theme="linea-nord-color"
-  # [ -d "$HOME/.themes/oomox-gtk-nik-theme" ] && theme="oomox-gtk-nik-theme" # not using till linea is good from wpg-install.sh
-  $cmd gtk-theme "$theme"
-  $cmd icon-theme "la-capitaine"
-  $cmd cursor-theme "GoogleDot-Black"
-  $cmd font-name "Comic Code Ligatures Nerd Font"
+hyprctl setcursor "GoogleDot-Black" 24
+gnome-settings() {
+	cmd="gsettings set org.gnome.desktop.interface"
+	theme=${GTK_THEME:-"adw-gtk3"}
+	theme="linea-nord-color"
+	icon="Quixotic-SEv2"
+	# icon="la-capitaine"
+	# [ -d "$HOME/.themes/oomox-gtk-nik-theme" ] && theme="oomox-gtk-nik-theme" # not using till linea is good from wpg-install.sh
+	$cmd gtk-theme "$theme"
+	$cmd icon-theme "$icon"
+	$cmd cursor-theme "GoogleDot-Black"
+	$cmd font-name "Comic Code Ligatures Nerd Font"
 }
 gnome-settings
-

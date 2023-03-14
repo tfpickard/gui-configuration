@@ -12,6 +12,7 @@ hyprvariables() {
 
 	# GTK variables
 	export GTK_THEME="linea-nord-color"
+	# export GTK_THEME="Adw-dark:dark"
 	export XCURSOR_SIZE=16
 	export XCURSOR_THEME="GoogleDot-Black"
 	# export GTK_THEME="oomox-gtk-nik-theme"
