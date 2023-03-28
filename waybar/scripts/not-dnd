@@ -1,40 +1,39 @@
 #!/usr/bin/env bash
 
-check(){
-  command -v "$1" 1>/dev/null
+check() {
+	command -v "$1" 1>/dev/null
 }
 
 check makoctl || exit
 
-notify(){
-  check notify-send && {
-    notify-send "$@"
-    return
-  }
-  echo "$@"
+notify() {
+	check notify-send && {
+		notify-send "$@"
+		return
+	}
+	echo "$@"
 }
-
 
 state="$(makoctl mode | sed -z 's/\n/ /g')"
 
-toggle(){
-  [[ "$state" == *"disturb"* ]] && {
-    notify "Notification on"
-    makoctl mode -r "do-not-disturb"
-  } || {
-    notify "DND on"
-    makoctl mode -a "do-not-disturb" 
-  }
+toggle() {
+	[[ "$state" == *"disturb"* ]] && {
+		notify "Notification on"
+		makoctl mode -r "do-not-disturb"
+	} || {
+		notify "DND on"
+		makoctl mode -a "do-not-disturb"
+	}
 }
 
 [ $# -eq 1 ] && {
-  [[ "$state" == *"disturb"* ]] && {
-    output='{"text":"","tooltip":"DND"}'
-  } || {
-    output='{"text":"","tooltip":"Notification Enabled"}'
-  }
-  echo "$output"
-} || toggle &>/dev/null
-
-pkill -SIGRTMIN+2 waybar
-
+	[[ "$state" == *"disturb"* ]] && {
+		output='{"text":"","tooltip":"DND"}'
+	} || {
+		output='{"text":"","tooltip":"Notification Enabled"}'
+	}
+	echo "$output"
+} || {
+	toggle &>/dev/null
+	pkill -SIGRTMIN+2 waybar
+}

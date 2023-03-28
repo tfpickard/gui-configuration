@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-check(){
-  command -v "$1" 1>/dev/null
+check() {
+	command -v "$1" 1>/dev/null
 }
 rootmgr="sudo"
 check doas && rootmgr="doas"
@@ -10,65 +10,67 @@ check doas && rootmgr="doas"
 # savermode: make auto-cpufreq on powersave (cpugoverner), hyprland config to reduce battery consumtion (optional)
 #   TODO: addition of Core Ctrl battery management
 
-savermode(){
-  [[ "$(auto-cpufreq --get-state)" = *"powersave"* ]] && {
-    check hyprctl || return
-    hyprctl --batch "keywords decoration:blur false ;keywords decoration:drop_shadow false"
-  }
-  check auto-cpufreq && {
-    $rootmgr auto-cpufreq --force="powersave" &>/dev/null
-  }
+savermode() {
+	[[ "$(auto-cpufreq --get-state)" = *"powersave"* ]] && {
+		check hyprctl || return
+		hyprctl --batch "keywords decoration:blur false ;keywords decoration:drop_shadow false"
+	}
+	check auto-cpufreq && {
+		$rootmgr auto-cpufreq --force="powersave" &>/dev/null
+	}
 }
 
-default(){
+default() {
 
-  check auto-cpufreq && {
-    $rootmgr auto-cpufreq --force="reset" &>/dev/null
-  }
-  check hyprctl || return
-  hyprctl --batch "keywords decoration:blur true ;keywords decoration:drop_shadow true"
+	check auto-cpufreq && {
+		$rootmgr auto-cpufreq --force="reset" &>/dev/null
+	}
+	check hyprctl || return
+	hyprctl --batch "keywords decoration:blur true ;keywords decoration:drop_shadow true"
 }
 
-performance(){
-  check auto-cpufreq && {
-    $rootmgr auto-cpufreq --force="performance" &>/dev/null
-  }
-  check hyprctl || return
-  hyprctl --batch "keywords decoration:blur true ;keywords decoration:drop_shadow true"
+performance() {
+	check auto-cpufreq && {
+		$rootmgr auto-cpufreq --force="performance" &>/dev/null
+	}
+	check hyprctl || return
+	hyprctl --batch "keywords decoration:blur true ;keywords decoration:drop_shadow true"
 }
 
-getdata(){
-  text="<b></b>"
-  tooltip=""
-  state=""
-  check hyprctl && {
-    blur=$(hyprctl getoption decoration:blur -j | jq '.int')
-    shadow=$(hyprctl getoption decoration:drop_shadow -j | jq '.int')
-    tooltip+="<b>Hyprland:\n</b>"
-    [ "$blur" -eq 1 ] && blur="enabled" || blur="disabled"
-    [ "$shadow" -eq 1 ] && shadow="enabled" || shadow="disabled"
-    tooltip+="Blur: $blur\nShadow: $shadow\n\n"
-  }
-  check auto-cpufreq && {
-    state="$(auto-cpufreq --get-state)"
-    tooltip+="<b>Auto Cpufreq:\n</b>auto-cpufreq: $state"
-  }
-  class="$state"
-  cat << EOF
+getdata() {
+	text="<b></b>"
+	tooltip=""
+	state=""
+	check hyprctl && {
+		blur=$(hyprctl getoption decoration:blur -j | jq '.int')
+		shadow=$(hyprctl getoption decoration:drop_shadow -j | jq '.int')
+		tooltip+="<b>Hyprland:\n</b>"
+		[ "$blur" -eq 1 ] && blur="enabled" || blur="disabled"
+		[ "$shadow" -eq 1 ] && shadow="enabled" || shadow="disabled"
+		tooltip+="Blur: $blur\nShadow: $shadow\n\n"
+	}
+	check auto-cpufreq && {
+		state="$(auto-cpufreq --get-state)"
+		tooltip+="<b>Auto Cpufreq:\n</b>auto-cpufreq: $state"
+	}
+	class="$state"
+	cat <<EOF
   { "text": "$text", "tooltip" : "$tooltip", "class" : "$class" }
 EOF
 }
 
 [[ "$1" = *"save"* ]] && {
-  savermode
+	savermode
+	pkill -SIGRTMIN+5 waybar
 }
 [[ "$1" = *"default"* ]] && {
-  default
+	default
+	pkill -SIGRTMIN+5 waybar
 }
 [[ "$1" = *"performance"* ]] && {
-  performance
+	performance
+	pkill -SIGRTMIN+5 waybar
 }
 [[ "$1" = *"getdata"* ]] && {
-  getdata
+	getdata
 }
-pkill -SIGRTMIN+5 waybar

@@ -19,6 +19,7 @@ notify() {
 	check notify-send && {
 		notify-send \
 			--hint=string:x-dunst-stack-tag:wallpaper \
+			--hint=string:synchronous:wallpaper \
 			"$@"
 	} || {
 		echo "$@"
@@ -130,6 +131,10 @@ extra() {
 	check pywal-discord && pywal-discord
 	check mako && makoctl reload
 	check pywal-discord && pywal-discord
+	[ -d "$HOME/.steam/steam/skins/" ] && {
+		pgrep -x steam &>/dev/null && killall steam
+		check wal_steam && wal_steam -g -s "$HOME"/.steam/steam/skins/
+	}
 	# check hyprctl && hyprctl reload
 	ifsddm
 	ifffox

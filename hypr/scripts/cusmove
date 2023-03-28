@@ -33,7 +33,7 @@ data = json.loads(command.stdout)
 if data["floating"]:
     val = getVal(dir)
     subprocess.run(
-        f"hyprctl dispatcher moveactive {val}",
+        f"hyprctl dispatch moveactive {val}",
         shell=True,
         capture_output=True,
         check=True,
@@ -41,7 +41,7 @@ if data["floating"]:
     )
 else:
     subprocess.run(
-        f"hyprctl dispatcher movewindow {dir}",
+        f"hyprctl dispatch movewindow {dir}",
         shell=True,
         capture_output=True,
         check=True,

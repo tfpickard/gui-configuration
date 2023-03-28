@@ -1,28 +1,28 @@
 colors:
   primary:
-    background: '0x050504'
-    foreground: '0x82c7ce'
+    background: '0x0e151a'
+    foreground: '0xdee0e2'
   cursor:
-    text:       '0x050504'
-    cursor:     '0x82c7ce'
+    text:       '0x0e151a'
+    cursor:     '0xdee0e2'
   normal:
-    black:      '0x050504'
-    red:        '0x9C0E04'
-    green:      '0xED0F02'
-    yellow:     '0xE54E03'
-    blue:       '0x07B618'
-    magenta:    '0xA5971F'
-    cyan:       '0x086D93'
-    white:      '0x82c7ce'
+    black:      '0x0e151a'
+    red:        '0xD0636C'
+    green:      '0x75827B'
+    yellow:     '0x798C9D'
+    blue:       '0x99A0A5'
+    magenta:    '0xC4C6AE'
+    cyan:       '0x8BA7C3'
+    white:      '0xdee0e2'
   bright:
-    black:      '0x5b8b90'
-    red:        '0x9C0E04'
-    green:      '0xED0F02'
-    yellow:     '0xE54E03'
-    blue:       '0x07B618'
-    magenta:    '0xA5971F'
-    cyan:       '0x086D93'
-    white:      '0x82c7ce'
+    black:      '0x9b9c9e'
+    red:        '0xD0636C'
+    green:      '0x75827B'
+    yellow:     '0x798C9D'
+    blue:       '0x99A0A5'
+    magenta:    '0xC4C6AE'
+    cyan:       '0x8BA7C3'
+    white:      '0xdee0e2'
 window:
   opacity: 0.9
 

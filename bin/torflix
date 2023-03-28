@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+[ -z "$1" ] && {
+	echo "Enter query!!"
+	exit
+}
+
+url="https://1337x.to"
+query="$(printf '%s' "$*" | tr ' ' '+')"
+movie=$(curl -s "$url/search/$query/1/" | grep -Eo "torrent/[0-9]{7}/[a-zA-Z0-9?%-]*/" | fzf -1)
+magnet=$(curl -s "https://1337x.to/$movie" | grep -Po "magnet:\?xt=urn:btih:[a-zA-Z0-9]*" | head -n 1)
+peerflix -l -k "$magnet"
