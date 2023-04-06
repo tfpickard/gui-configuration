@@ -140,8 +140,8 @@
     "format-source": "{volume}% ",
     "format-source-muted": "",
     "on-click": "pactl set-source-mute 0 toggle",
-    "on-scroll-up": "pactl set-source-volume 0 -1%",
-    "on-scroll-down": "pactl set-source-volume 0 +1%",
+    "on-scroll-down": "pactl set-source-volume 0 -1%",
+    "on-scroll-up": "pactl set-source-volume 0 +1%",
   },
   "pulseaudio": {
     "format": "{volume}% {icon}",
@@ -159,9 +159,11 @@
         ""
       ]
     },
-    "on-click": "myxer",
-    "on-scroll-down": "~/bin/volume up",
-    "on-scroll-up": "~/bin/volume down",
+    "on-click": "~/bin/pactl",
+    "on-click-middle": "pavucontrol",
+    "on-click-right": "myxer",
+    "on-scroll-up": "~/bin/volume up",
+    "on-scroll-down": "~/bin/volume down",
     "smooth-scrolling-threshold": 1,
   },
 }

@@ -16,9 +16,9 @@ command = subprocess.run(
 datali = json.loads(command.stdout)
 data = []
 for i in datali:
-    if i[
-        "mapped"
-    ]:  # Added this to not list unmapped windows as hyprland 0.23 beta introduced liting xwayland unmapped windows
+    if (
+        i["mapped"] and i["workspace"]["id"] > 0
+    ):  # Added this to not list unmapped windows as hyprland 0.23 beta introduced liting xwayland unmapped windows
         data.append((i["class"], str(i["pid"]), i["title"]))
 
 string = "\n".join([" - ".join(x) for x in data])

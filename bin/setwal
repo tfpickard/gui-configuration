@@ -17,10 +17,10 @@ nocolor="\033[0m"
 # shellcheck disable=SC2015
 notify() {
 	check notify-send && {
-		notify-send \
+		setsid notify-send \
 			--hint=string:x-dunst-stack-tag:wallpaper \
 			--hint=string:synchronous:wallpaper \
-			"$@"
+			"$@" &>/dev/null
 	} || {
 		echo "$@"
 	}
@@ -131,9 +131,15 @@ extra() {
 	check pywal-discord && pywal-discord
 	check mako && makoctl reload
 	check pywal-discord && pywal-discord
+	check xrdb && xrdb ~/.Xresources
 	[ -d "$HOME/.steam/steam/skins/" ] && {
 		pgrep -x steam &>/dev/null && killall steam
 		check wal_steam && wal_steam -g -s "$HOME"/.steam/steam/skins/
+	}
+	check waybar && {
+		killall -q waybar
+		waybar &>/dev/null &
+		disown
 	}
 	# check hyprctl && hyprctl reload
 	ifsddm

@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-wpg -nrs '/home/niksingh710/Pictures/wallpapers/Second/Nordic/operating-system/linux-is-coming-1080p.png' '/home/niksingh710/Pictures/wallpapers/Second/Nordic/operating-system/linux-is-coming-1080p.png'
+wpg -nrs '/home/niksingh710/Pictures/wallpapers/Second/Paintings/Abstract Walls by niivu/niivu-abstractpack (33).jpg' '/home/niksingh710/Pictures/wallpapers/Second/Paintings/Abstract Walls by niivu/niivu-abstractpack (33).jpg'

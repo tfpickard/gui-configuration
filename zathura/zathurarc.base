@@ -48,7 +48,7 @@ map d scroll half-down
 map D toggle_page_mode
 map R reload
 map r rotate
-map K zoom in
-map J zoom out
+map J zoom in
+map K zoom out
 map i recolor
 set recolor                     true

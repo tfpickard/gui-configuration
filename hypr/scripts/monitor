@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+# This script configure monitors
+
+check() {
+	command -v "$1" &>/dev/null
+}
+notify() {
+	check notify-send && notify-send "$@" || echo "$@"
+}
+
+check jq || {
+	notify "jq not present"
+	exit 1
+}
+
+data="$(hyprctl monitors -j)"
+_monitor="$(echo "$data" | jq length)"
+
+one() {
+	notify "only single monitor"
+	# shellcheck disable=SC2116
+	_primary="$(echo "$data | jq '.[0].name")"]
+	str=""
+	for i in {1..9}; do
+		str+="keyword wsbind $i,$_primary ; "
+	done
+	hyprctl keyword monitor "$_primary,preferred,0x0,1"
+	hyprctl --batch \
+		"$str \
+    dispatch focusmonitor $_primary"
+
+	notify "Setted Single Display Configuration" "$_primary as Primary" -t 5000
+}
+
+two() {
+	_primary="${1:-"eDP-1"}"
+	str=""
+	for i in {1..8}; do
+		str+="keyword wsbind $i,$_primary ; dispatch moveworkspacetomonitor $i $_primary ; "
+	done
+	hyprctl keyword monitor "eDP-1,preferred,1920x0,1"
+	hyprctl keyword monitor "$_primary,preferred,0x0,1"
+
+	hyprctl --batch \
+		"$str \
+		keyword wsbind 9,eDP-1 ; dispatch moveworkspacetomonitor $i $_primary ; \
+    dispatch workspace 1 ; \
+    dispatch focusmonitor $_primary "
+
+	notify "Setted Dual Monitor Configuration" "$_primary as Primary" -t 5000
+}
+
+case "$_monitor" in
+1)
+	echo "One monitor is present"
+	;;
+2)
+	echo "two are present"
+	two "DP-1"
+	;;
+*)
+	notify "Configuration set for these monitors are not available" "use wdisplays"
+	;;
+esac
+
+"$HOME/bin/setwal" -w "$HOME/.wallpaper" -s

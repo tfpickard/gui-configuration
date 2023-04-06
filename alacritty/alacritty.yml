@@ -1,32 +1,32 @@
 colors:
   primary:
-    background: '0x0e151a'
-    foreground: '0xdee0e2'
+    background: '0x22201e'
+    foreground: '0xd8b8a3'
   cursor:
-    text:       '0x0e151a'
-    cursor:     '0xdee0e2'
+    text:       '0x22201e'
+    cursor:     '0xd8b8a3'
   normal:
-    black:      '0x0e151a'
-    red:        '0xD0636C'
-    green:      '0x75827B'
-    yellow:     '0x798C9D'
-    blue:       '0x99A0A5'
-    magenta:    '0xC4C6AE'
-    cyan:       '0x8BA7C3'
-    white:      '0xdee0e2'
+    black:      '0x22201e'
+    red:        '0x845E42'
+    green:      '0x946847'
+    yellow:     '0xB17850'
+    blue:       '0xC07F55'
+    magenta:    '0xBE8056'
+    cyan:       '0xB58B69'
+    white:      '0xd8b8a3'
   bright:
-    black:      '0x9b9c9e'
-    red:        '0xD0636C'
-    green:      '0x75827B'
-    yellow:     '0x798C9D'
-    blue:       '0x99A0A5'
-    magenta:    '0xC4C6AE'
-    cyan:       '0x8BA7C3'
-    white:      '0xdee0e2'
+    black:      '0x978072'
+    red:        '0x845E42'
+    green:      '0x946847'
+    yellow:     '0xB17850'
+    blue:       '0xC07F55'
+    magenta:    '0xBE8056'
+    cyan:       '0xB58B69'
+    white:      '0xd8b8a3'
 window:
   opacity: 0.9
 
 font:
   normal:
-    family: 'Comic Code Ligatures Nerd Font'
+    family: 'ComicCodeLigatures Nerd Font'
     style: Regular

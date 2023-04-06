@@ -1,4 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+# Monitor Config script (needs refactoring)
+# "$HOME/.config/hypr/scripts/monitor"
 
 # hyprctl keywords windowrule workspace 1 silent,foot
 # hyprctl keywords windowrule workspace 2 silent,firefox
@@ -13,3 +16,5 @@
 # for i in "${arr[@]}"; do
 # 	hyprctl keyword windowrule "workspace unset,$i"
 # done
+hyprctl dispatch exec "[workspace special:scratchpad silent] killall -q droidcam ; droidcam"
+hyprctl dispatch exec "[workspace special:scratchpad silent] pavucontrol"
