@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+
+check() {
+	command -v "$1" &>/dev/null
+}
+
+notify() {
+	check notify-send && notify-send -u low -t 3000 "$1" || {
+		echo "$1"
+	}
+}
+
+check rofi || {
+	notify "Rofi not Found"
+	exit 1
+}
+
+# Current Theme
+dir="$HOME/.config/rofi/"
+conf='powermenu-conf'
+
+# CMDs
+uptime="$(uptime -p | sed -e 's/up //g')"
+check hostname && ifhost=$(hostname) || ifhost=""
+
+# Options
+shutdown=''
+reboot=''
+lock=''
+suspend=''
+logout=''
+
+# Rofi CMD
+rofi_cmd() {
+	rofi -dmenu \
+		-p "Goodbye ${USER}" \
+		-mesg "Uptime $ifhost: $uptime" \
+		-config "${dir}"/"${conf}".rasi
+}
+
+# Pass variables to rofi dmenu
+run_rofi() {
+	echo -e "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | rofi_cmd
+}
+
+# Actions
+chosen="$(run_rofi)"
+case ${chosen} in
+"$shutdown")
+	systemctl shutdown
+	;;
+"$reboot")
+	systemctl rebooot
+	;;
+"$lock")
+	loginctl lock-session
+	;;
+"$suspend")
+	systemctl suspend
+	;;
+"$logout")
+	pkill -KILL -u niksingh710
+	;;
+esac

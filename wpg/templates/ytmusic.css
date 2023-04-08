@@ -4,30 +4,30 @@ html:not(.style-scope)
       
 /*===================Start of custom variables==============================*/           
       
-      --cust-ytmusic-play-nav-color: #22201e;
-      --cust-ytmusic-dark-background: #22201e;
-      --cust-ytmusic-dark-foreground: #22201e;
+      --cust-ytmusic-play-nav-color: #182528;
+      --cust-ytmusic-dark-background: #182528;
+      --cust-ytmusic-dark-foreground: #182528;
       
-      --cust-ytmusic-light-text-1: #d8b8a3e3;
-      --cust-ytmusic-light-2: #d8b8a3; 
-      --cust-ytmusic-light-3: #946847;
-      --cust-ytmusic-light-4: #BE8056;
-      --cust-ytmusic-light-5: #BE8056;
+      --cust-ytmusic-light-text-1: #cac5bce3;
+      --cust-ytmusic-light-2: #cac5bc; 
+      --cust-ytmusic-light-3: #7D7F76;
+      --cust-ytmusic-light-4: #A69B7A;
+      --cust-ytmusic-light-5: #A69B7A;
       
-      --cust-ytmusic-medium-1: #d8b8a39c;
-      --cust-ytmusic-medium-2: #BE8056;
-      --cust-ytmusic-medium-3: #d8b8a3;    
-      --cust-ytmusic-medium-4: #C07F55;
-      --cust-ytmusic-medium-5: #d8b8a3f2;
+      --cust-ytmusic-medium-1: #cac5bc9c;
+      --cust-ytmusic-medium-2: #A69B7A;
+      --cust-ytmusic-medium-3: #cac5bc;    
+      --cust-ytmusic-medium-4: #8E8A74;
+      --cust-ytmusic-medium-5: #cac5bcf2;
       
-      --cust-ytmusic-subscribe-color: #d8b8a3;
-      --cust-ytmusic-nowplaying-color: #d8b8a3;
-      --cust-ytmusic-playbutton-color:#d8b8a3; 
-      --cust-ytmusic-tertiary-nav-button-color: #d8b8a3;
+      --cust-ytmusic-subscribe-color: #cac5bc;
+      --cust-ytmusic-nowplaying-color: #cac5bc;
+      --cust-ytmusic-playbutton-color:#cac5bc; 
+      --cust-ytmusic-tertiary-nav-button-color: #cac5bc;
         
-      --cust-ytmusic-main-text-1: #d8b8a3;
-      --cust-ytmusic-header-text-1: #d8b8a3;
-      --cust-ytmusic-header-text-2: #B58B69;
+      --cust-ytmusic-main-text-1: #cac5bc;
+      --cust-ytmusic-header-text-1: #cac5bc;
+      --cust-ytmusic-header-text-2: #C2A97D;
       
       
       

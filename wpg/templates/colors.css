@@ -4,25 +4,25 @@
     --wallpaper: url("/home/niksingh710/Pictures/wallpapers/Second/External Sources/Hal/portrait/nong-vang-5w-sLCUhDYc-unsplash.jpg");
 
     /* Special */
-    --background: #22201e;
-    --foreground: #d8b8a3;
-    --cursor: #d8b8a3;
+    --background: #182528;
+    --foreground: #cac5bc;
+    --cursor: #cac5bc;
 
     /* Colors */
-    --color0: #22201e;
-    --color1: #845E42;
-    --color2: #946847;
-    --color3: #B17850;
-    --color4: #C07F55;
-    --color5: #BE8056;
-    --color6: #B58B69;
-    --color7: #d8b8a3;
-    --color8: #978072;
-    --color9: #845E42;
-    --color10: #946847;
-    --color11: #B17850;
-    --color12: #C07F55;
-    --color13: #BE8056;
-    --color14: #B58B69;
-    --color15: #d8b8a3;
+    --color0: #182528;
+    --color1: #6E7168;
+    --color2: #7D7F76;
+    --color3: #837C6E;
+    --color4: #8E8A74;
+    --color5: #A69B7A;
+    --color6: #C2A97D;
+    --color7: #cac5bc;
+    --color8: #8d8983;
+    --color9: #6E7168;
+    --color10: #7D7F76;
+    --color11: #837C6E;
+    --color12: #8E8A74;
+    --color13: #A69B7A;
+    --color14: #C2A97D;
+    --color15: #cac5bc;
 }

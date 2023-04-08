@@ -43,8 +43,8 @@ two() {
 
 	hyprctl --batch \
 		"$str \
-		keyword wsbind 9,eDP-1 ; dispatch moveworkspacetomonitor $i $_primary ; \
-    dispatch workspace 1 ; \
+		keyword wsbind 9,eDP-1 ; dispatch moveworkspacetomonitor 9 $_primary ; \
+    dispatch workspace 9 ; dispatch workspace 1 ; \
     dispatch focusmonitor $_primary "
 
 	notify "Setted Dual Monitor Configuration" "$_primary as Primary" -t 5000
