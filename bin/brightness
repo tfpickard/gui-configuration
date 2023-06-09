@@ -10,6 +10,7 @@ check brightnessctl || {
 }
 
 notify() {
+	# shellcheck disable=SC2015
 	check notify-send && {
 		notify-send "$@"
 	} || {

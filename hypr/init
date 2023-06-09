@@ -22,16 +22,3 @@ hyprctl setcursor "GoogleDot-Black" 24
 # 	$cmd font-name "Comic Code Ligatures Nerd Font"
 # }
 # gnome-settings
-
-[ "$(hyprctl monitors -j | jq length)" = 2 ] && {
-	hyprctl keyword workspace "eDP-1,name:laptop"
-}
-
-# # Monitor{{{
-# for i in {1..9}; do
-# 	hyprctl keyword wsbind "$i,DP-1"
-# done
-# hyprctl dispatch moveworkspacetomonitor 1 DP-1
-# hyprctl dispatch renameworkspace 10 laptop
-# hyprctl dispatch workspace 1
-# # }}}

@@ -2,29 +2,25 @@
   "name": "top-bar",
   "position": "top",
   "layer": "top",
-  "modules-left": [
-    "custom/dinfo",
-    "wlr/workspaces",
-  ],
-  "modules-center": [
-    "hyprland/window",
-  ],
+  "modules-left": ["custom/dinfo", "wlr/workspaces"],
+  "modules-center": ["hyprland/window"],
   "modules-right": [
+    "hyprland/submap",
+    "custom/updates",
     "tray",
     "custom/colorpicker",
     "gamemode",
-    "custom/updates",
     "custom/github",
     "custom/camera",
     "custom/notifications",
     "idle_inhibitor",
-    "custom/weather",
+    "custom/weather"
   ],
   "custom/dinfo": {
     "interval": 60,
     "format": "",
     "return-type": "json",
-    "exec": "~/.config/waybar/scripts/dinfo",
+    "exec": "~/.config/waybar/scripts/dinfo"
   },
   "wlr/workspaces": {
     "format": "{name}",
@@ -36,24 +32,9 @@
     "format": "<span color='red'></span> {} <span color='red'></span>",
     "separate-outputs": true
   },
-  "tray": {
-    "spacing": 15,
-    "icon-size": 16,
-  },
-  "custom/colorpicker": {
-    "format": "{}",
-    "return-type": "json",
-    "interval": "once",
-    "exec": "$HOME/.config/waybar/scripts/colpicker/colorpicker -j",
-    "on-click": "sleep 1 && $HOME/.config/waybar/scripts/colpicker/colorpicker",
-    "signal": 1,
-  },
-  "gamemode": {
-    "hide-not-running": true,
-    "icon-spacing": 4,
-    "icon-size": 13,
-    "tooltip": true,
-    "tooltip-format": "Games running: {count}"
+  "hyprland/submap": {
+    "format": "Submap: {}",
+    "tooltip": false
   },
   "custom/updates": {
     "format": "{}",
@@ -62,6 +43,25 @@
     "return-type": "json",
     "exec-if": "exit 0",
     "signal": 8
+  },
+  "tray": {
+    "spacing": 15,
+    "icon-size": 16
+  },
+  "custom/colorpicker": {
+    "format": "{}",
+    "return-type": "json",
+    "interval": "once",
+    "exec": "$HOME/.config/waybar/scripts/colpicker/colorpicker -j",
+    "on-click": "sleep 1 && $HOME/.config/waybar/scripts/colpicker/colorpicker",
+    "signal": 1
+  },
+  "gamemode": {
+    "hide-not-running": true,
+    "icon-spacing": 4,
+    "icon-size": 13,
+    "tooltip": true,
+    "tooltip-format": "Games running: {count}"
   },
   "custom/github": {
     "format": "{}  ",
@@ -75,7 +75,7 @@
     "interval": "once",
     "exec": "[ -z \"$(lsmod | grep uvcvideo)\" ] && echo \"\nCamera Disabled\" || echo \"\"",
     "on-click": "~/.config/waybar/scripts/camera-toggle",
-    "signal": 3,
+    "signal": 3
   },
   "custom/notifications": {
     "format": "<b>{}</b>",
@@ -83,14 +83,14 @@
     "on-click": "~/.config/waybar/scripts/not-dnd",
     "return-type": "json",
     "interval": "once",
-    "signal": 2,
+    "signal": 2
   },
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
       "activated": "",
       "deactivated": ""
-    },
+    }
   },
   "custom/weather": {
     "format": "{}",
@@ -98,5 +98,5 @@
     "interval": 600,
     "exec": "~/.config/waybar/scripts/wttr.py",
     "return-type": "json"
-  },
+  }
 }

@@ -15,6 +15,8 @@ check rofi || {
 	exit 1
 }
 
+killall -q rofi
+
 # Current Theme
 dir="$HOME/.config/rofi/"
 conf='powermenu-conf'
@@ -43,22 +45,35 @@ run_rofi() {
 	echo -e "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | rofi_cmd
 }
 
+cleanup() {
+	# This is a function that will fix any error that occurs after logout login
+
+	# Rclone fuser drives needs to be unmounted before logout
+  mapfile -t mounted_rclones < <(grep fuse.rclone /etc/mtab | awk '{print $2}')
+  # mounted_rclones=($(grep fuse.rclone /etc/mtab | awk '{print $2}'))
+  printf '%s\n' "${mounted_rclones[@]}" | while IFS= read -r line; do
+    fusermount -uq "$line"
+  done
+}
+
 # Actions
 chosen="$(run_rofi)"
 case ${chosen} in
 "$shutdown")
-	systemctl shutdown
+	systemctl poweroff
 	;;
 "$reboot")
-	systemctl rebooot
+	systemctl reboot
 	;;
 "$lock")
+	sleep .5s
 	loginctl lock-session
 	;;
 "$suspend")
 	systemctl suspend
 	;;
 "$logout")
+	cleanup
 	pkill -KILL -u niksingh710
 	;;
 esac

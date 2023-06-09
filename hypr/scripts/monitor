@@ -5,7 +5,7 @@ check() {
 	command -v "$1" &>/dev/null
 }
 notify() {
-	check notify-send && notify-send "$@" || echo "$@"
+  check notify-send && notify-send "$@" || echo "$@"
 }
 
 check jq || {
@@ -22,7 +22,7 @@ one() {
 	_primary="$(echo "$data | jq '.[0].name")"]
 	str=""
 	for i in {1..9}; do
-		str+="keyword wsbind $i,$_primary ; "
+		str+="keyword workspace $i,monitor:$_primary,default:true ; "
 	done
 	hyprctl keyword monitor "$_primary,preferred,0x0,1"
 	hyprctl --batch \
@@ -36,15 +36,16 @@ two() {
 	_primary="${1:-"eDP-1"}"
 	str=""
 	for i in {1..8}; do
-		str+="keyword wsbind $i,$_primary ; dispatch moveworkspacetomonitor $i $_primary ; "
+		str+="keyword workspace $i,monitor:$_primary ; dispatch moveworkspacetomonitor $i $_primary ; "
 	done
 	hyprctl keyword monitor "eDP-1,preferred,1920x0,1"
 	hyprctl keyword monitor "$_primary,preferred,0x0,1"
 
 	hyprctl --batch \
 		"$str \
-		keyword wsbind 9,eDP-1 ; dispatch moveworkspacetomonitor 9 $_primary ; \
-    dispatch workspace 9 ; dispatch workspace 1 ; \
+		keyword workspace 9,monitor:eDP-1 ; \
+    dispatch moveworkspacetomonitor 9 eDP-1 ; \
+    dispatch workspace 1 ; \
     dispatch focusmonitor $_primary "
 
 	notify "Setted Dual Monitor Configuration" "$_primary as Primary" -t 5000

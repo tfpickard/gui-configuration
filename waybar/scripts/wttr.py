@@ -57,9 +57,9 @@ WEATHER_CODES = {
 
 data = {}
 
-location = "greater-noida"  # should detect automatically but for cases when network is jumped as in college
-# weather = requests.get("https://wttr.in/?format=j1").json()
-weather = requests.get(f"https://wttr.in/{location}?format=j1").json()
+# location = "greater-noida"  # should detect automatically but for cases when network is jumped as in college
+weather = requests.get("https://wttr.in/?format=j1").json()
+# weather = requests.get(f"https://wttr.in/{location}?format=j1").json()
 
 
 def format_time(time):

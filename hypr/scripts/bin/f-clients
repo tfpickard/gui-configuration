@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Focuses to available open clients
+
+loc=$(dirname "$(realpath "${BASH_SOURCE:-0}")")
+[ -f "$loc/../list-client" ] || exit
+hash rofi 2>/dev/null || exit
+hash hyprctl 2>/dev/null || exit
+
+# killall -q rofi && exit
+"$loc/../list-client"
+
+out=$(echo "$1" | awk '{print $3}')
+# out=$(rofi -show combi -modes combi -combi-modes "clients:$loc/../list-client,drun" | awk '{print $3}')
+[ -z "$out" ] || {
+	killall -q rofi &>/dev/null
+	hyprctl dispatch focuswindow "pid:$out"
+	[ "$(hyprctl activewindow -j | jq '.floating')" = true ] && {
+		hyprctl dispatch bringactivetotop none
+	}
+}
+exit 0
+# vim: ft=sh

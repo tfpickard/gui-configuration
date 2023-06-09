@@ -52,6 +52,7 @@ listview {
   padding:                        0px;
   columns:                        1;
   lines:                          6;
+  fixed-height:                   false;
   spacing:                        5px;
   cycle:                          true;
   dynamic:                        true;
