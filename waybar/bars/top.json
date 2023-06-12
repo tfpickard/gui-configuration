@@ -18,7 +18,7 @@
   ],
   "custom/dinfo": {
     "interval": 60,
-    "format": "",
+    "format": "   ",
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/dinfo"
   },

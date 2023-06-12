@@ -4,11 +4,11 @@
   "modules-left": [
     "battery",
     "custom/batterysaver",
-    "cpu",
-    "custom/cputemp",
     "memory",
     "disk",
-    "cava"
+    "cava",
+    "cpu",
+    "custom/cputemp",
   ],
   "modules-center": ["clock"],
   "modules-right": [
@@ -32,7 +32,7 @@
     "tooltip-format": "{timeTo}\n{capacity} % | {power} W"
   },
   "custom/batterysaver": {
-    "format": "{}",
+    "format": " {}",
     "exec": "~/.config/waybar/scripts/battsaver-toggle getdata",
     "on-click": "~/.config/waybar/scripts/battsaver-toggle save",
     "on-click-right": "~/.config/waybar/scripts/battsaver-toggle default",
@@ -41,22 +41,12 @@
     "return-type": "json",
     "signal": 5
   },
-  "cpu": {
-    "format": "{usage}% ",
-    "on-click": "~/bin/term btop"
-  },
-  "custom/cputemp": {
-    "format": "{}",
-    "exec": "~/.config/waybar/scripts/cputemp",
-    "interval": 10,
-    "return-type": "json"
-  },
   "memory": {
-    "format": "{}% "
+    "format": " | {}% "
   },
   "disk": {
     "interval": 600,
-    "format": "{percentage_used}% ",
+    "format": " | {percentage_used}% ",
     "path": "/"
   },
   "cava": {
@@ -80,6 +70,16 @@
     "actions": {
       "on-click-right": "mode"
     }
+  },
+  "cpu": {
+    "format": " | {usage}% ",
+    "on-click": "~/bin/term btop"
+  },
+  "custom/cputemp": {
+    "format": " | {}",
+    "exec": "~/.config/waybar/scripts/cputemp",
+    "interval": 10,
+    "return-type": "json"
   },
   "clock": {
     "format": "{:%H:%M}",
@@ -113,10 +113,10 @@
     "ignored-players": ["firefox"],
   },
   "network": {
-    "format-wifi": "  {bandwidthDownBits}",
-    "format-ethernet": " {bandwidthDownBits}",
-    "format-disconnected": "",
-    "format-linked": "",
+    "format-wifi": "  {bandwidthDownBits} |",
+    "format-ethernet": " {bandwidthDownBits} |",
+    "format-disconnected": " |",
+    "format-linked": " |",
     "tooltip-format": "{ipaddr}",
     "tooltip-format-wifi": "{essid} ({signalStrength}%)   \n{ipaddr} | {frequency} MHz{icon} \n {bandwidthDownBits}  {bandwidthUpBits} ",
     "tooltip-format-ethernet": "{ifname}  | \n{ipaddr} | {frequency} MHz{icon} \n {bandwidthDownBits}  {bandwidthUpBits} ",
@@ -124,11 +124,11 @@
     "on-click": "networkmanager_dmenu"
   },
   "bluetooth": {
-    "format-on": "",
-    "format-off": "",
+    "format-on": " |",
+    "format-off": " |",
     "format-disabled": "",
-    "format-connected": "<b> {device_alias}</b>",
-    "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+    "format-connected": "<b> {device_alias}</b> |",
+    "format-connected-battery": " {device_alias} {device_battery_percentage}% |",
     "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
@@ -137,7 +137,7 @@
   },
   "backlight": {
     "device": "intel_backlight",
-    "format": "{percent}% {icon}",
+    "format": "{percent}% {icon} |",
     "format-icons": [
       "",
       "",
@@ -161,16 +161,16 @@
   },
   "pulseaudio#mic": {
     "format": "{format_source}",
-    "format-source": "{volume}% ",
-    "format-source-muted": "",
+    "format-source": "{volume}%  |",
+    "format-source-muted": " |",
     "on-click": "pactl set-source-mute 0 toggle",
     "on-scroll-down": "pactl set-source-volume 0 -1%",
     "on-scroll-up": "pactl set-source-volume 0 +1%"
   },
   "pulseaudio": {
-    "format": "{volume}% {icon}",
-    "format-bluetooth": "{volume}% {icon}",
-    "format-muted": "",
+    "format": "{volume}% {icon} ",
+    "format-bluetooth": "{volume}% {icon} ",
+    "format-muted": " |",
     "format-icons": {
       "headphones": "",
       "handsfree": "",

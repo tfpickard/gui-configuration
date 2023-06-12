@@ -7,7 +7,7 @@ check() {
 }
 
 check gtklock && {
-  gtklock -c ~/.config/gtklock/config.ini -s ~/.config/gtklock/style.css
+  gtklock -c ~/.config/gtklock/config.ini -s ~/.config/gtklock/style.css -d
 } || {
 
 	# This needs to be modified soon

@@ -7,10 +7,10 @@ check(){
 check swayidle || exit 0
 check swaylock || exit 0
 
-check sway-audio-idle-inhibit && {
-  killall -q sway-audio-idle-inhibit
-  exec sway-audio-idle-inhibit &>/dev/null &
-}
+# check sway-audio-idle-inhibit && {
+#   killall -q sway-audio-idle-inhibit
+#   exec sway-audio-idle-inhibit &>/dev/null &
+# }
 
 killall -q swayidle
 killall -q swaylock
@@ -30,7 +30,7 @@ swayidle -w \
 before-sleep "$lock" \
 lock "$lock" \
 unlock "$unlock" \
-timeout $LOCK_TIME "loginctl lock-session" \
-timeout $SCRN_TIME "sleep 1 && hyprctl dispatch dpms off" resume "sleep 1 && hyprctl dispatch dpms on" \
-timeout $SUSPEND_TIME "$suspend" &>/dev/null &
+timeout "$LOCK_TIME" "loginctl lock-session" \
+timeout "$SCRN_TIME" "sleep 1 && hyprctl dispatch dpms off" resume "sleep 1 && hyprctl dispatch dpms on" \
+timeout "$SUSPEND_TIME" "$suspend" &>/dev/null &
 
