@@ -25,6 +25,7 @@ for i in $coretemp; do
 	tooltip+="Core $j: $i\n"
 	((j = j + 1))
 done
+tooltip="${tooltip::-2}"
 cat <<EOF
 {"text":"$icon","tooltip":"$tooltip",}
 EOF

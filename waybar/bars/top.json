@@ -7,13 +7,13 @@
   "modules-right": [
     "hyprland/submap",
     "custom/updates",
-    "tray",
     "custom/colorpicker",
     "gamemode",
     "custom/github",
     "custom/camera",
     "custom/notifications",
     "idle_inhibitor",
+    "tray",
     "custom/weather"
   ],
   "custom/dinfo": {
@@ -43,10 +43,6 @@
     "return-type": "json",
     "exec-if": "exit 0",
     "signal": 8
-  },
-  "tray": {
-    "spacing": 15,
-    "icon-size": 16
   },
   "custom/colorpicker": {
     "format": "{}",
@@ -87,10 +83,16 @@
   },
   "idle_inhibitor": {
     "format": "{icon}",
+    "tooltip-format-activated": "Idle Inhibitor is active",
+    "tooltip-format-deactivated": "Idle Inhibitor is not active",
     "format-icons": {
-      "activated": "",
-      "deactivated": ""
+      "activated": "",
+      "deactivated": ""
     }
+  },
+  "tray": {
+    "spacing": 15,
+    "icon-size": 16
   },
   "custom/weather": {
     "format": "{}",

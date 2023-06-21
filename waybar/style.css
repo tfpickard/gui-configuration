@@ -11,21 +11,21 @@
 
 #waybar {
   margin-top: 14px;
-  /* background: alpha(@background, 0.6); */
+  background: alpha(@background, 0.6);
 }
-#waybar.top {
-  border-bottom: 2px solid @active;
-}
-#waybar.bottom {
-  border-top: 2px solid @active;
-}
+/* #waybar.top { */
+/*   border-bottom: 2px solid @active; */
+/* } */
+/* #waybar.bottom { */
+/*   border-top: 2px solid @active; */
+/* } */
 
 window {
   background: transparent;
 }
 
 tooltip,
-#tray-menu {
+#tray menu {
   background: alpha(@background, 0.9);
   color: @active;
   border: 1px solid shade(@background, 0.5);
@@ -70,7 +70,7 @@ tooltip,
 #mpris,
 #cava,
 #window {
-  /*background: shade(alpha(@background, 0.8), 0.5);*/
+  /* background: shade(alpha(@background, 0.8), 0.5); */
   padding: 0px 2px;
 }
 
@@ -147,7 +147,9 @@ tooltip,
   padding: 0 10px 0 6px;
 }
 
-/* #idle_inhibitor.activated, */
+#idle_inhibitor.activated {
+  color: @active;
+}
 #tray > .needs-attention {
   /*background: shade(alpha(@foreground, 0.8), 0.5);*/
   color: shade(@background, 0.5);

@@ -42,11 +42,11 @@
     "signal": 5
   },
   "memory": {
-    "format": " | {}% "
+    "format": " | {}% "
   },
   "disk": {
     "interval": 600,
-    "format": " | {percentage_used}% ",
+    "format": " | {percentage_used}% ",
     "path": "/"
   },
   "cava": {
@@ -101,7 +101,7 @@
     }
   },
   "mpris": {
-    "format": "{player_icon} {dynamic}",
+    "format": "{player_icon} {dynamic} |",
     "format-paused": "{status_icon} <i>{dynamic}</i>",
     "player-icons": {
       "default": "▶",
@@ -129,10 +129,10 @@
     "format-disabled": "",
     "format-connected": "<b> {device_alias}</b> |",
     "format-connected-battery": " {device_alias} {device_battery_percentage}% |",
-    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+    "tooltip-format": "{controller_alias}: {controller_address}\n[{num_connections}] device connected",
+    "tooltip-format-connected": "{device_enumerate}\n{controller_alias}: {controller_address}\n[{num_connections}] device connected",
+    "tooltip-format-enumerate-connected": "{device_alias}: {device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}: {device_address}: {device_battery_percentage}%",
     "on-click": "rofi-bluetooth"
   },
   "backlight": {
