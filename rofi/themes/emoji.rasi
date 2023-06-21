@@ -1,5 +1,4 @@
 @import "colors.rasi"
-@import "custom.rasi"
 configuration {
 	display-emoji: "";
 	show-icons: false;

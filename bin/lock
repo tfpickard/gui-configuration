@@ -1,13 +1,11 @@
 #!/bin/sh
 
 check() {
-	command -v swaylock 1>/dev/null || {
-		echo "swaylock is not installed"
-	}
+	command -v "$1" 1>/dev/null 
 }
 
 check gtklock && {
-  gtklock -c ~/.config/gtklock/config.ini -s ~/.config/gtklock/style.css -d
+  gtklock -c ~/.config/gtklock/config.ini -s ~/.config/gtklock/style.css -m ~/.config/gtklock/userinfo-module.so -m ~/.config/gtklock/runshell-module.so -d
 } || {
 
 	# This needs to be modified soon

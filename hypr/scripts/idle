@@ -26,11 +26,14 @@ suspend="systemctl suspend"
 
 [ -f "$HOME/bin/lock" ] && lock="$HOME/bin/lock"
 
+check gtklock && unlock="killall -q gtklock"
+
 swayidle -w \
 before-sleep "$lock" \
 lock "$lock" \
 unlock "$unlock" \
 timeout "$LOCK_TIME" "loginctl lock-session" \
 timeout "$SCRN_TIME" "sleep 1 && hyprctl dispatch dpms off" resume "sleep 1 && hyprctl dispatch dpms on" \
+after-resume "$HOME/.config/hypr/scripts/monitor" \
 timeout "$SUSPEND_TIME" "$suspend" &>/dev/null &
 
