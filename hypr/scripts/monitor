@@ -41,11 +41,15 @@ two() {
 	hyprctl keyword monitor "eDP-1,preferred,1920x0,1"
 	hyprctl keyword monitor "$_primary,preferred,0x0,1"
 
+	_current_workspace="$(hyprctl monitors -j | jq '.[] | select(.focused==true)' | jq -j '.activeWorkspace.name')"
+
+  [ -z "$_current_workspace" ] && _current_workspace=1
+
 	hyprctl --batch \
 		"$str \
 		keyword workspace 9,monitor:eDP-1 ; \
     dispatch moveworkspacetomonitor 9 eDP-1 ; \
-    dispatch workspace 1 ; \
+    dispatch workspace $_current_workspace ; \
     dispatch focusmonitor $_primary "
 
 	notify "Setted Dual Monitor Configuration" "$_primary as Primary" -t 5000

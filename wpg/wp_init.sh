@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-wpg -nrs '/home/niksingh710/Pictures/wallpapers/favwalls/World_Map_4k_Gruvbox_Dark.png' '/home/niksingh710/Pictures/wallpapers/favwalls/World_Map_4k_Gruvbox_Dark.png'
+wpg -nrs '/home/niksingh710/Pictures/wallpapers/Second/External Sources/Hal/portrait/anthony-intraversato-391731.jpg' '/home/niksingh710/Pictures/wallpapers/Second/External Sources/Hal/portrait/anthony-intraversato-391731.jpg'

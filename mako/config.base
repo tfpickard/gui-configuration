@@ -22,7 +22,11 @@ invisible=0
 on-button-middle=exec makoctl menu -n "$id" bemenu -p 'Select action: '
 on-button-right=exec makoctl menu -n "$id" $HOME/Downloads/temp/test.sh
 format= <b>%s</b>\n%b
+on-notify=exec mpv --no-video --no-terminal --really-quiet /usr/share/sounds/freedesktop/stereo/bell.oga
 
 [mode=do-not-disturb]
 invisible=1
+on-notify=none
+
+[mode=silent]
 on-notify=none

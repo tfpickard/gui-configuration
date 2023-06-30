@@ -5,14 +5,14 @@
   "modules-left": ["custom/dinfo", "wlr/workspaces"],
   "modules-center": ["hyprland/window"],
   "modules-right": [
-    "hyprland/submap",
-    "custom/updates",
     "custom/colorpicker",
+    "hyprland/submap",
+    "idle_inhibitor",
+    "custom/updates",
     "gamemode",
     "custom/github",
     "custom/camera",
     "custom/notifications",
-    "idle_inhibitor",
     "tray",
     "custom/weather"
   ],
@@ -36,14 +36,6 @@
     "format": "Submap: {}",
     "tooltip": false
   },
-  "custom/updates": {
-    "format": "{}",
-    "interval": 3600,
-    "exec": "~/.config/waybar/scripts/updatecheck",
-    "return-type": "json",
-    "exec-if": "exit 0",
-    "signal": 8
-  },
   "custom/colorpicker": {
     "format": "{}",
     "return-type": "json",
@@ -51,6 +43,23 @@
     "exec": "$HOME/.config/waybar/scripts/colpicker/colorpicker -j",
     "on-click": "sleep 1 && $HOME/.config/waybar/scripts/colpicker/colorpicker",
     "signal": 1
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "tooltip-format-activated": "Idle Inhibitor is active",
+    "tooltip-format-deactivated": "Idle Inhibitor is not active",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+  "custom/updates": {
+    "format": "{}",
+    "interval": 3600,
+    "exec": "~/.config/waybar/scripts/updatecheck",
+    "return-type": "json",
+    "exec-if": "exit 0",
+    "signal": 8
   },
   "gamemode": {
     "hide-not-running": true,
@@ -74,21 +83,12 @@
     "signal": 3
   },
   "custom/notifications": {
-    "format": "<b>{}</b>",
+    "format": "<b>{}</b> ",
     "exec": "~/.config/waybar/scripts/not-dnd -j",
     "on-click": "~/.config/waybar/scripts/not-dnd",
     "return-type": "json",
     "interval": "once",
     "signal": 2
-  },
-  "idle_inhibitor": {
-    "format": "{icon}",
-    "tooltip-format-activated": "Idle Inhibitor is active",
-    "tooltip-format-deactivated": "Idle Inhibitor is not active",
-    "format-icons": {
-      "activated": "",
-      "deactivated": ""
-    }
   },
   "tray": {
     "spacing": 15,

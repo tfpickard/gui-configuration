@@ -8,7 +8,7 @@
     "disk",
     "cava",
     "cpu",
-    "custom/cputemp",
+    "custom/cputemp"
   ],
   "modules-center": ["clock"],
   "modules-right": [
@@ -110,7 +110,7 @@
     "status-icons": {
       "paused": "⏸"
     },
-    "ignored-players": ["firefox"],
+    "ignored-players": ["firefox", "kdeconnect"]
   },
   "network": {
     "format-wifi": "  {bandwidthDownBits} |",

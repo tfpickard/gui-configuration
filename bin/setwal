@@ -55,6 +55,7 @@ loading() {
 swwwFn() {
 	export SWWW_TRANSITION_FPS=60
 	export SWWW_TRANSITION_STEP=5
+  export SWWW_TRANSITION_TYPE=random
 	swww init &>/dev/null
 	swww img "$1"
 }
@@ -141,6 +142,11 @@ extra() {
 		waybar &>/dev/null &
 		disown
 	}
+  check mailspring && {
+    killall -q mailspring
+    mailspring --background &>/dev/null &
+    disown
+  }
 	# check hyprctl && hyprctl reload
 	ifsddm
 	ifffox

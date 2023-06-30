@@ -11,9 +11,16 @@ check doas && rootmgr="doas"
 #   TODO: addition of Core Ctrl battery management
 
 savermode() {
-	[[ "$(auto-cpufreq --get-state)" = *"powersave"* ]] && {
+	[[ "$($rootmgr auto-cpufreq --get-state)" = *"powersave"* ]] && {
 		check hyprctl || return
-		hyprctl --batch "keywords decoration:blur false ;keywords decoration:drop_shadow false"
+		hyprctl --batch "\
+      keyword animations:enabled 0;\
+      keyword decoration:drop_shadow 0;\
+      keyword decoration:blur 0;\
+      keyword general:gaps_in 0;\
+      keyword general:gaps_out 0;\
+      keyword general:border_size 1;\
+      keyword decoration:rounding 0"
 	}
 	check auto-cpufreq && {
 		$rootmgr auto-cpufreq --force="powersave" &>/dev/null
@@ -26,7 +33,7 @@ default() {
 		$rootmgr auto-cpufreq --force="reset" &>/dev/null
 	}
 	check hyprctl || return
-	hyprctl --batch "keywords decoration:blur true ;keywords decoration:drop_shadow true"
+	hyprctl reload
 }
 
 performance() {
@@ -34,7 +41,7 @@ performance() {
 		$rootmgr auto-cpufreq --force="performance" &>/dev/null
 	}
 	check hyprctl || return
-	hyprctl --batch "keywords decoration:blur true ;keywords decoration:drop_shadow true"
+	hyprctl reload
 }
 
 getdata() {
@@ -42,15 +49,13 @@ getdata() {
 	tooltip=""
 	state=""
 	check hyprctl && {
-		blur=$(hyprctl getoption decoration:blur -j | jq '.int')
-		shadow=$(hyprctl getoption decoration:drop_shadow -j | jq '.int')
+		glory=$(hyprctl getoption animations:enabled | awk 'NR==2{print $2}')
 		tooltip+="<b>Hyprland:\n</b>"
-		[ "$blur" -eq 1 ] && blur="enabled" || blur="disabled"
-		[ "$shadow" -eq 1 ] && shadow="enabled" || shadow="disabled"
-		tooltip+="Blur: $blur\nShadow: $shadow\n\n"
+		[ "$glory" -eq 1 ] && glory="enabled" || glory="disabled"
+		tooltip+="Glory Stuff: $glory\n"
 	}
 	check auto-cpufreq && {
-		state="$(auto-cpufreq --get-state)"
+		state="$($rootmgr auto-cpufreq --get-state)"
 		tooltip+="<b>Auto Cpufreq:\n</b>auto-cpufreq: $state"
 	}
 	class="$state"

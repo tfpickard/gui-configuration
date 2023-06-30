@@ -11,7 +11,8 @@
 
 #waybar {
   margin-top: 14px;
-  background: alpha(@background, 0.6);
+  background: alpha(@background, 0.9);
+  border-radius: 0px;
 }
 /* #waybar.top { */
 /*   border-bottom: 2px solid @active; */
@@ -22,6 +23,7 @@
 
 window {
   background: transparent;
+  border-radius: 0px;
 }
 
 tooltip,
@@ -179,7 +181,7 @@ tooltip,
 
 #battery {
   border-radius: 8px 0 0 8px;
-  /* color: #8bd5ca; */
+  color: @foreground;
 }
 
 #battery.warning:not(.charging),
@@ -204,21 +206,14 @@ tooltip,
 #bluetooth {
   /* color: #fab387; */
 }
-
-#battery.charging,
-#network.disconnected {
-  /*background: alpha(@active, 0.6);*/
-  color: @background;
-}
-
 #custom-batterysaver.powersave {
-  /* color: #a6e3a1; */
+  color: #a6e3a1;
 }
 #custom-batterysaver.default {
-  /* color: #7aa2f7; */
+  color: @foreground;
 }
 #custom-batterysaver.performance {
-  /* color: #d78787; */
+  color: #d78787;
 }
 
 #backlight {

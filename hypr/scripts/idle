@@ -21,12 +21,11 @@ SUSPEND_TIME=${SUSPEND_TIME:-150}
 SUSPEND_TIME=$((SUSPEND_TIME + SCRN_TIME))
 
 lock="swaylock -f"
-unlock="killall -q swaylock"
+unlock="killall -q swaylock;killall -q gtklock"
 suspend="systemctl suspend"
 
 [ -f "$HOME/bin/lock" ] && lock="$HOME/bin/lock"
 
-check gtklock && unlock="killall -q gtklock"
 
 swayidle -w \
 before-sleep "$lock" \
