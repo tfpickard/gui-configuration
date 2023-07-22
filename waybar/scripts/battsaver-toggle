@@ -11,7 +11,7 @@ check doas && rootmgr="doas"
 #   TODO: addition of Core Ctrl battery management
 
 savermode() {
-	[[ "$($rootmgr auto-cpufreq --get-state)" = *"powersave"* ]] && {
+	[[ "$(auto-cpufreq --get-state)" = *"powersave"* ]] && {
 		check hyprctl || return
 		hyprctl --batch "\
       keyword animations:enabled 0;\
@@ -55,7 +55,7 @@ getdata() {
 		tooltip+="Glory Stuff: $glory\n"
 	}
 	check auto-cpufreq && {
-		state="$($rootmgr auto-cpufreq --get-state)"
+		state="$(auto-cpufreq --get-state)"
 		tooltip+="<b>Auto Cpufreq:\n</b>auto-cpufreq: $state"
 	}
 	class="$state"

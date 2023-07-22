@@ -68,4 +68,4 @@ case "$_monitor" in
 	;;
 esac
 
-[ -f "$HOME/.wallpaper" ] && "$HOME/bin/setwal" -w "$HOME/.wallpaper" -s
+# [ -f "$HOME/.wallpaper" ] && "$HOME/bin/setwal" -w "$HOME/.wallpaper" -s
