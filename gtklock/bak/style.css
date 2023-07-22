@@ -1,0 +1,59 @@
+* {
+  all: unset;
+}
+
+/* TODO: wpg colors */
+
+.background {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#window-box {
+  border-radius: 12.6px;
+  margin: 18px;
+  color: #eee;
+  padding: 50px;
+}
+#window-box #clock-label {
+  font-size: 6em;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+#window-box #unlock-button {
+  border-radius: 9px;
+  color: #eee;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.002);
+  padding: 6px 12px;
+}
+#window-box #unlock-button:hover {
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.002);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #eee;
+}
+#window-box #unlock-button:active {
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.002);
+  background-color: #62a0ea;
+  color: #181818;
+}
+#window-box #input-field {
+  border-radius: 16px;
+  color: #eee;
+  min-height: 32px;
+  padding-left: 0.6em;
+  border: .1px solid rgba(255, 255, 255, 0.2);
+}
+#window-box #input-field:hover {
+  color: #eee;
+}
+#window-box #input-field:active {
+  color: #181818;
+}
+#window-box #input-field:focus {
+  border-color: #62a0ea;
+}
+#window-box #warning-label {
+  color: #f6d32d;
+}
+#window-box #error-label {
+  color: #f66151;
+}
