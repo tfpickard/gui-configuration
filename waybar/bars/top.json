@@ -20,7 +20,7 @@
     "interval": 60,
     "format": "   ",
     "return-type": "json",
-    "exec": "~/.config/waybar/scripts/dinfo"
+    "exec": "~/.config/waybar/bin/dinfo"
   },
   "wlr/workspaces": {
     "format": "{name}",
@@ -40,8 +40,8 @@
     "format": "{}",
     "return-type": "json",
     "interval": "once",
-    "exec": "$HOME/.config/waybar/scripts/colpicker/colorpicker -j",
-    "on-click": "sleep 1 && $HOME/.config/waybar/scripts/colpicker/colorpicker",
+    "exec": "$HOME/.config/waybar/bin/colpicker/colorpicker -j",
+    "on-click": "sleep 1 && $HOME/.config/waybar/bin/colpicker/colorpicker",
     "signal": 1
   },
   "idle_inhibitor": {
@@ -56,7 +56,7 @@
   "custom/updates": {
     "format": "{}",
     "interval": 3600,
-    "exec": "~/.config/waybar/scripts/updatecheck",
+    "exec": "~/.config/waybar/bin/updatecheck",
     "return-type": "json",
     "exec-if": "exit 0",
     "signal": 8
@@ -72,20 +72,20 @@
     "format": "{}  ",
     "return-type": "json",
     "interval": 3600,
-    "exec": "$HOME/.config/waybar/scripts/github.sh",
+    "exec": "$HOME/.config/waybar/bin/github.sh",
     "on-click": "xdg-open https://github.com/notifications"
   },
   "custom/camera": {
     "format": "{} ",
     "interval": "once",
     "exec": "[ -z \"$(lsmod | grep uvcvideo)\" ] && echo \"\nCamera Disabled\" || echo \"\"",
-    "on-click": "~/.config/waybar/scripts/camera-toggle",
+    "on-click": "~/.config/hypr/bin/camera-toggle",
     "signal": 3
   },
   "custom/notifications": {
     "format": "<b>{}</b> ",
-    "exec": "~/.config/waybar/scripts/not-dnd -j",
-    "on-click": "~/.config/waybar/scripts/not-dnd",
+    "exec": "~/.config/waybar/bin/not-dnd -j",
+    "on-click": "~/.config/waybar/bin/not-dnd",
     "return-type": "json",
     "interval": "once",
     "signal": 2
@@ -98,7 +98,7 @@
     "format": "{}",
     "tooltip": true,
     "interval": 600,
-    "exec": "~/.config/waybar/scripts/wttr.py",
+    "exec": "~/.config/waybar/bin/wttr.py",
     "return-type": "json"
   }
 }

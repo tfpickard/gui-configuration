@@ -2,24 +2,17 @@
 * {
   background: transparent;
   border-radius: 8px;
-  font-family: "ComicCodeLigatures Nerd Font";
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 12;
   color: @foreground;
   transition: none;
   box-shadow: none;
-  margin: 1px;
 }
 
 #waybar {
-  margin-top: 14px;
-  background: alpha(@background, 0.9);
+  background: alpha(@background, 0.6);
   border-radius: 0px;
 }
-/* #waybar.top { */
-/*   border-bottom: 2px solid @active; */
-/* } */
-/* #waybar.bottom { */
-/*   border-top: 2px solid @active; */
-/* } */
 
 window {
   background: transparent;
@@ -72,29 +65,12 @@ tooltip,
 #mpris,
 #cava,
 #window {
-  /* background: shade(alpha(@background, 0.8), 0.5); */
   padding: 0px 2px;
 }
 
-/* Right side margin */
-/* #custom-weather, */
-/* #idle_inhibitor, */
-/* #backlight, */
-/* #network, */
-/* #bluetooth, */
-/* #mpris, */
 #pulseaudio {
   margin-right: 4px;
 }
-
-/* Left side margin */
-/* #battery, */
-/* #custom-dinfo, */
-/* #cpu, */
-/* #cava, */
-/* #memory { */
-/*   margin-left: 2px; */
-/* } */
 
 /* Right Border flat */
 #custom-colorpicker,
@@ -107,7 +83,6 @@ tooltip,
 
 /* Left Border flat */
 #disk,
-#workspaces,
 #custom-cputemp,
 #custom-batterysaver,
 #pulseaudio,
@@ -119,7 +94,6 @@ tooltip,
 
 #custom-notifications,
 #custom-github,
-#custom-updates,
 #gamemode,
 #custom-camera {
   border-radius: 0px;
@@ -146,7 +120,7 @@ tooltip,
 }
 
 #idle_inhibitor {
-  padding: 0 10px 0 6px;
+  padding: 0 6px 0 6px;
 }
 
 #idle_inhibitor.activated {
@@ -203,9 +177,6 @@ tooltip,
   animation-direction: alternate;
 }
 
-#bluetooth {
-  /* color: #fab387; */
-}
 #custom-batterysaver.powersave {
   color: #a6e3a1;
 }
@@ -246,4 +217,3 @@ tooltip,
   /* color: #a784db; */
 }
 
-/* }}} */

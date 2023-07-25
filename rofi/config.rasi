@@ -1,5 +1,5 @@
 configuration {
-	font:							    "Comic Code Ligatures 12";
+	font:							    "JetBrainsMono Nerd Font Mono 12";
   show-icons:           true;
   drun-display-format:  "{name}";
 	hide-scrollbar: 			true;
@@ -12,11 +12,11 @@ configuration {
   kb-row-up:            "Up,Control+k";
   kb-row-down:          "Down,Control+j";
   kb-row-right:         "Control+l";
-  kb-row-left:         "Control+h";
+  kb-row-left:          "Control+h";
   hover-select:         true;
   me-select-entry:      "";
   me-accept-entry:      [MousePrimary,MouseSecondary];
-  icon-theme:           "Quixotic-SEv2";
+  icon-theme:           "la-capitaine-icon-theme";
   terminal:             "foot";
 }
 

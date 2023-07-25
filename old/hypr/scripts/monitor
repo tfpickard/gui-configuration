@@ -1,0 +1,69 @@
+#!/usr/bin/env bash
+# This script configure monitors
+
+check() {
+	command -v "$1" &>/dev/null
+}
+notify() {
+  check notify-send && notify-send "$@" || echo "$@"
+}
+
+check jq || {
+	notify "jq not present"
+	exit 1
+}
+
+data="$(hyprctl monitors -j)"
+_monitor="$(echo "$data" | jq length)"
+
+one() {
+	notify "only single monitor"
+	# shellcheck disable=SC2116
+	_primary="$(echo "$data | jq '.[0].name")"]
+	str=""
+	for i in {1..9}; do
+		str+="keyword workspace $i,monitor:$_primary,default:true ; "
+	done
+	hyprctl keyword monitor "$_primary,preferred,0x0,1" &>/dev/null
+	hyprctl --batch \
+		"$str \
+    dispatch focusmonitor $_primary" &>/dev/null
+
+	notify "Setted Single Display Configuration" "$_primary as Primary" -t 5000
+}
+
+two() {
+	_primary="${1:-"eDP-1"}"
+	str=""
+	for i in {1..8}; do
+		str+="keyword workspace $i,monitor:$_primary ; dispatch moveworkspacetomonitor $i $_primary ; "
+	done
+	hyprctl keyword monitor "eDP-1,preferred,1920x0,1" &>/dev/null
+	hyprctl keyword monitor "$_primary,preferred,0x0,1" &>/dev/null
+
+	_current_workspace="$(hyprctl monitors -j | jq '.[] | select(.focused==true)' | jq -j '.activeWorkspace.name')"
+
+  [ -z "$_current_workspace" ] && _current_workspace=1
+
+	hyprctl --batch \
+		"$str \
+		keyword workspace 9,monitor:eDP-1 ; \
+    dispatch moveworkspacetomonitor 9 eDP-1 ; \
+    dispatch workspace $_current_workspace ; \
+    dispatch focusmonitor $_primary " &>/dev/null
+
+	notify "Setted Dual Monitor Configuration" "$_primary as Primary" -t 5000
+}
+
+case "$_monitor" in
+1)
+	echo "One monitor is present"
+	;;
+2)
+	echo "two are present"
+	two "DP-1"
+	;;
+*)
+	notify "Configuration set for these monitors are not available" "use wdisplays"
+	;;
+esac
