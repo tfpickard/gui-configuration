@@ -67,3 +67,5 @@ case "$_monitor" in
 	notify "Configuration set for these monitors are not available" "use wdisplays"
 	;;
 esac
+
+check setwal && setwal -w ~/.wallpaper.png -s

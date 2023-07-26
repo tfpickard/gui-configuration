@@ -8,7 +8,7 @@ notify(){
   check notify-send && notify-send "$@" || echo "$@"
 }
 
-[ -f "$HOME/.config/github/notifications.toke" ] || {
+[ -f "$HOME/.config/github/notifications.token" ] || {
   notify "Ensure you have placed token"
   cat << EOF
   {"text":"NaN","tooltip":"Token was not found"}

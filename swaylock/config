@@ -17,33 +17,33 @@ indicator-radius=150
 indicator-thickness=2
 indicator-caps-lock
 
-key-hl-color=7c5b74
+key-hl-color=2a8aa0
 
 separator-color=00000000
 
 inside-color=0d0d1266
-inside-clear-color=95d1dd66
-inside-caps-lock-color=7c5b74
-inside-ver-color=9C7292
+inside-clear-color=cbc7e166
+inside-caps-lock-color=2a8aa0
+inside-ver-color=6F92DB
 inside-wrong-color=ee2e2400
 
-ring-color=553e50
-ring-clear-color=553e50
-ring-caps-lock-color=C8B569
-ring-ver-color=95d1dd
+ring-color=1d5e6e
+ring-clear-color=1d5e6e
+ring-caps-lock-color=B47688
+ring-ver-color=cbc7e1
 ring-wrong-color=231f20D9
 
 line-color=00000000
-line-clear-color=553e50
-line-caps-lock-color=7c5b74
-line-ver-color=F5768E
+line-clear-color=1d5e6e
+line-caps-lock-color=2a8aa0
+line-ver-color=7AA2F7
 line-wrong-color=ee2e24FF
 
-text-clear-color=553e50
-text-ver-color=95d1dd
+text-clear-color=1d5e6e
+text-ver-color=cbc7e1
 text-wrong-color=ee2e2400
 
-bs-hl-color=95d1dd
+bs-hl-color=cbc7e1
 caps-lock-key-hl-color=ffd204FF
 caps-lock-bs-hl-color=ee2e24FF
 disable-caps-lock-text
