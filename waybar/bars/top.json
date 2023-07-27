@@ -14,7 +14,8 @@
     "custom/camera",
     "custom/notifications",
     "tray",
-    "custom/weather"
+    "custom/weather",
+    "custom/recorder"
   ],
   "custom/dinfo": {
     "interval": 60,
@@ -100,5 +101,14 @@
     "interval": 600,
     "exec": "~/.config/waybar/bin/wttr.py",
     "return-type": "json"
+  },
+  "custom/recorder": {
+    "format": "{}",
+    "interval": "once",
+    "exec": "echo ''",
+    "tooltip": "false",
+    "exec-if": "pgrep 'wf-recorder'",
+    "on-click": "exec $HOME/.config/waybar/bin/recorder",
+    "signal": 4
   }
 }

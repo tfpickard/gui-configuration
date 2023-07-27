@@ -54,6 +54,9 @@ cleanup() {
   printf '%s\n' "${mounted_rclones[@]}" | while IFS= read -r line; do
     fusermount -uq "$line"
   done
+  killall -q zellij
+  killall -q swww
+  check hyprctl && hyprctl dispatch exit none
 }
 
 # Actions

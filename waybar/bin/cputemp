@@ -15,10 +15,10 @@ tooltip="<b>Core Temp: $package </b>\n"
 # "format-icons" : [ "", "", "", "", "" ] ,
 tempint=${package%.*}
 icon="<span color='#7AA2F7'>$package </span>"
-[ "$tempint" -gt 60 ] && icon="<span color='#00ffff'>$package </span>"
-[ "$tempint" -gt 70 ] && icon="<span color='#A6DA95'>$package </span>"
-[ "$tempint" -gt 85 ] && icon="<span color='#FAB387'>$package </span>"
-[ "$tempint" -gt 95 ] && icon="<span color='#ff0000'>$package </span>"
+[ "$tempint" -gt 60 ] && icon="<span color='#7aa2f7'>$package </span>"
+[ "$tempint" -gt 70 ] && icon="<span color='#a6e3a1'>$package </span>"
+[ "$tempint" -gt 85 ] && icon="<span color='#fab387'>$package </span>"
+[ "$tempint" -gt 95 ] && icon="<span color='#d78787'>$package </span>"
 
 j=0
 for i in $coretemp; do

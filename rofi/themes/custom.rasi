@@ -120,7 +120,7 @@ listview {
     layout:                      vertical;
     reverse:                     false;
     fixed-columns:               true;
-    fixed-height:                true;
+    fixed-height:                false;
     
     spacing:                     10px;
     background-color:            transparent;

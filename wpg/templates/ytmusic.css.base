@@ -5,8 +5,8 @@ html:not(.style-scope)
 /*===================Start of custom variables==============================*/           
       
       --cust-ytmusic-play-nav-color: {background};
-      --cust-ytmusic-dark-background: {background};
-      --cust-ytmusic-dark-foreground: {background};
+      --cust-ytmusic-dark-background: {background}ee;
+      --cust-ytmusic-dark-foreground: {background}ee;
       
       --cust-ytmusic-light-text-1: {foreground}e3;
       --cust-ytmusic-light-2: {cursor}; 

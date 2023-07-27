@@ -122,7 +122,7 @@ gtk-settings() {
 	gsettings set org.gnome.desktop.interface gtk-theme $gtktheme
 	gsettings set org.gnome.desktop.interface icon-theme $icontheme
 	gsettings set org.gnome.desktop.interface cursor-theme $cursortheme
-
+  gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 	gsettings set org.gnome.desktop.wm.preferences theme $gtktheme
 
 
@@ -135,7 +135,7 @@ extra() {
 	check pywal-discord && pywal-discord
 	check mako && makoctl reload
 	check pywal-discord && pywal-discord
-	check xrdb && xrdb ~/.Xresources
+	check xrdb && xrdb "$HOME"/.Xresources
 	check waybar && {
 		killall -q waybar
 		waybar &>/dev/null &
