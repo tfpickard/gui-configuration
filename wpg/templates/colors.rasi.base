@@ -63,3 +63,8 @@
   dbg:  {color0}02;
 
 }}
+
+configuration {{
+	font:							    "{font} 12";
+  icon-theme:           "{icontheme}";
+}}

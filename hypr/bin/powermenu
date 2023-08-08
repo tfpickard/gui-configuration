@@ -49,14 +49,14 @@ cleanup() {
 	# This is a function that will fix any error that occurs after logout login
 
 	# Rclone fuser drives needs to be unmounted before logout
-  mapfile -t mounted_rclones < <(grep fuse.rclone /etc/mtab | awk '{print $2}')
-  # mounted_rclones=($(grep fuse.rclone /etc/mtab | awk '{print $2}'))
-  printf '%s\n' "${mounted_rclones[@]}" | while IFS= read -r line; do
-    fusermount -uq "$line"
-  done
-  killall -q zellij
-  killall -q swww
-  check hyprctl && hyprctl dispatch exit none
+	mapfile -t mounted_rclones < <(grep fuse.rclone /etc/mtab | awk '{print $2}')
+	# mounted_rclones=($(grep fuse.rclone /etc/mtab | awk '{print $2}'))
+	printf '%s\n' "${mounted_rclones[@]}" | while IFS= read -r line; do
+		fusermount -uq "$line"
+	done
+	killall -q zellij
+	killall -q swww
+	check hyprctl && hyprctl dispatch exit none
 }
 
 # Actions
@@ -77,6 +77,7 @@ case ${chosen} in
 	;;
 "$logout")
 	cleanup
-	pkill -KILL -u niksingh710
+	loginctl terminate-session "$(loginctl session-status | head -n 1 | awk '{print $1}')"
+	# pkill -KILL -u niksingh710
 	;;
 esac

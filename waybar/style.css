@@ -3,7 +3,7 @@
   background: transparent;
   border-radius: 8px;
   font-family: "JetBrainsMono Nerd Font";
-  font-size: 12;
+  font-size: 12px;
   color: @foreground;
   transition: none;
   box-shadow: none;
@@ -134,19 +134,23 @@ tooltip,
 #workspaces button {
   padding: 0 4px;
   margin: 0;
+  border-radius: 0;
 }
 #workspaces button.urgent {
-  background: @active;
-  color: @background;
-  animation-name: blink-blue;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+  /* background: @active; */
+  /* color: @background; */
+  text-decoration: underline;
+  font-weight: bold;
+  /* animation-name: blink-blue; */
+  /* animation-duration: 1s; */
+  /* animation-timing-function: linear; */
+  /* animation-iteration-count: infinite; */
+  /* animation-direction: alternate; */
 }
 #workspaces button.active {
-  background: @active;
+  background: alpha(@active, 0.3);
   color: @background;
+  -gtk-icon-transform: skew(14deg);
 }
 
 /* }}} */
@@ -216,4 +220,3 @@ tooltip,
 #cpu {
   /* color: #a784db; */
 }
-

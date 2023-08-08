@@ -1,5 +1,4 @@
 configuration {
-	font:							    "JetBrainsMono Nerd Font Mono 12";
   show-icons:           true;
   drun-display-format:  "{name}";
 	hide-scrollbar: 			true;
@@ -16,7 +15,6 @@ configuration {
   hover-select:         true;
   me-select-entry:      "";
   me-accept-entry:      [MousePrimary,MouseSecondary];
-  icon-theme:           "la-capitaine-icon-theme";
   terminal:             "foot";
 }
 

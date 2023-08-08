@@ -28,3 +28,5 @@ $icontheme = {icontheme}
 $cursorsize = {cursorsize}
 $roundness = {roundness}
 $radius = {radius}
+
+# vim: commentstring=#\ %s

@@ -125,7 +125,13 @@ gtk-settings() {
   gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 	gsettings set org.gnome.desktop.wm.preferences theme $gtktheme
 
+}
 
+zellij-theme(){
+  [ -d "$HOME/.config/zellij" ] || return
+  [ -f "$HOME/.config/wpg/templates/zellij.default.kdl" ] || return 
+  [ -f "$HOME/.config/zellij/themes/default.kdl" ] || return 
+  sed 's/,/ /g' -i "$HOME/.config/zellij/themes/default.kdl"
 }
 
 extra() {
@@ -135,7 +141,6 @@ extra() {
 	check pywal-discord && pywal-discord
 	check mako && makoctl reload
 	check pywal-discord && pywal-discord
-	check xrdb && xrdb "$HOME"/.Xresources
 	check waybar && {
 		killall -q waybar
 		waybar &>/dev/null &
@@ -147,6 +152,8 @@ extra() {
 		disown
 	}
 	ifffox
+	check xrdb && xrdb "$HOME/.Xresources"
+  zellij-theme
 }
 
 wpg-settings() {

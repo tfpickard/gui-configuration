@@ -1,29 +1,29 @@
 # Shell variables
 
 # Special
-background=#030D0B
-foreground=#7ab4d7
-cursor=#7ab4d7
-active=#3c5748
+background=#12121b
+foreground=#cadddb
+cursor=#cadddb
+active=#a782bb
 font=JetBrainsMono Nerd Font
 gtktheme=linea-nord-color
-icontheme=la-capitaine-icon-theme
+icontheme=flattrcolor-dark
 cursortheme=GoogleDot-Black
 
 # Colors
-color0=#030D0B
-color1=#215160
-color2=#4C6E5B
-color3=#668C2C
-color4=#628F5D
-color5=#AABA60
-color6=#186496
-color7=#7ab4d7
-color8=#557d96
-color9=#215160
-color10=#4C6E5B
-color11=#668C2C
-color12=#628F5D
-color13=#AABA60
-color14=#186496
-color15=#7ab4d7
+color0=#12121b
+color1=#BC6EE5
+color2=#65C0A3
+color3=#F7BC95
+color4=#E6A1AC
+color5=#D2A3EB
+color6=#DDB5F2
+color7=#cadddb
+color8=#8d9a99
+color9=#BC6EE5
+color10=#65C0A3
+color11=#F7BC95
+color12=#E6A1AC
+color13=#D2A3EB
+color14=#DDB5F2
+color15=#cadddb
