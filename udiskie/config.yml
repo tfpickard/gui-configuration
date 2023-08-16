@@ -4,4 +4,4 @@ program_options:
   automount: false
   notify: true
   file_manager: xdg-open
-  terminal: 'foot'
+  terminal: "foot"

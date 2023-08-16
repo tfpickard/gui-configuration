@@ -122,16 +122,16 @@ gtk-settings() {
 	gsettings set org.gnome.desktop.interface gtk-theme $gtktheme
 	gsettings set org.gnome.desktop.interface icon-theme $icontheme
 	gsettings set org.gnome.desktop.interface cursor-theme $cursortheme
-  gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+	gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 	gsettings set org.gnome.desktop.wm.preferences theme $gtktheme
 
 }
 
-zellij-theme(){
-  [ -d "$HOME/.config/zellij" ] || return
-  [ -f "$HOME/.config/wpg/templates/zellij.default.kdl" ] || return 
-  [ -f "$HOME/.config/zellij/themes/default.kdl" ] || return 
-  sed 's/,/ /g' -i "$HOME/.config/zellij/themes/default.kdl"
+zellij-theme() {
+	[ -d "$HOME/.config/zellij" ] || return
+	[ -f "$HOME/.config/wpg/templates/zellij.default.kdl" ] || return
+	[ -f "$HOME/.config/zellij/themes/default.kdl" ] || return
+	sed 's/,/ /g' -i "$HOME/.config/zellij/themes/default.kdl"
 }
 
 extra() {
@@ -153,7 +153,7 @@ extra() {
 	}
 	ifffox
 	check xrdb && xrdb "$HOME/.Xresources"
-  zellij-theme
+	zellij-theme
 }
 
 wpg-settings() {
@@ -201,7 +201,13 @@ $_cmd "$_path" &>/dev/null && {
 	notify "Image setted successfully" -i "$_path"
 	ln -sf "$_path" ~/.wallpaper.png
 } || {
-	notify "Make sure $_cmd is working fine!!"
+	notify "Retrying to set the wallpaper"
+	$_cmd "$_path" &>/dev/null && {
+		notify "Image setted successfully" -i "$_path"
+		ln -sf "$_path" ~/.wallpaper.png
+	} || {
+		notify "Make sure $_cmd is working fine!!"
+	}
 }
 $skip && exit 0
 

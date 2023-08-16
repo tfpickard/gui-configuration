@@ -1,50 +1,46 @@
-#!/usr/bin/env python3
+#!/usr/bin/env bash
 
-# TODO: convert in bash with jq
-"""
-This script will move tiling window and non tiling one with same key press
-Uses hyprctl.
-"""
+check() {
+	command -v "$1" >/dev/null 2>&1
+}
 
-import json
-import subprocess
-import sys
+notify() {
+	check notify-send && notify-send "$@" || echo "$@"
+}
 
-dir = sys.argv[1]
+check jq || {
+	notify "jq not found"
+	exit 1
+}
 
+_curr_win_state=$(hyprctl activewindow -j | jq -r '.floating')
+val=50
 
-def getVal(dir):
-    val = 50
-    if dir == "r":
-        return f"{val} 0"
-    if dir == "d":
-        return f"0 {val}"
-    if dir == "l":
-        return f"-{val} 0"
-    if dir == "u":
-        return f"0 -{val}"
+getVal() {
+	case "$1" in
+	"r")
+		echo "$val 0"
+		;;
+	"d")
+		echo "0 $val"
+		;;
+	"l")
+		echo "-$val 0"
+		;;
+	"u")
+		echo "0 -$val"
+		;;
+	esac
+}
 
+if [ $# -eq 0 ]; then
+	echo "No arguments provided"
+	exit 1
+fi
 
-command = subprocess.run(
-    "hyprctl activewindow -j", shell=True, capture_output=True, check=True, text=True
-)
-
-data = json.loads(command.stdout)
-
-if data["floating"]:
-    val = getVal(dir)
-    subprocess.run(
-        f"hyprctl dispatch moveactive {val}",
-        shell=True,
-        capture_output=True,
-        check=True,
-        text=True,
-    )
-else:
-    subprocess.run(
-        f"hyprctl dispatch movewindow {dir}",
-        shell=True,
-        capture_output=True,
-        check=True,
-        text=True,
-    )
+if [[ $_curr_win_state == "true" ]]; then
+	# shellcheck disable=SC2046
+	hyprctl dispatch moveactive $(getVal "$1")
+else
+	hyprctl dispatch movewindow "$1"
+fi
