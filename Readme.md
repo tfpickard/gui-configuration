@@ -22,7 +22,7 @@ I hope didn't missed anything 🤔
 ```
 git clone https://github.com/niksingh710/gui-configuration.git ~/.gui-dots
 cd ~/.gui-dots
-xstow /* -t ~
+xstow */ -t ~
 ```
 
 # Preview
