@@ -135,6 +135,7 @@ zellij-theme() {
 }
 
 extra() {
+	check xrdb && xrdb -merge "$HOME/.Xresources"
 	gtk-settings
 	check pywalfox && pywalfox update
 	check wal-telegram && wal-telegram --wal -r -g
@@ -152,7 +153,6 @@ extra() {
 		disown
 	}
 	ifffox
-	check xrdb && xrdb "$HOME/.Xresources"
 	zellij-theme
 }
 

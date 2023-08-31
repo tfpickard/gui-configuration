@@ -20,8 +20,8 @@
   active:		{active};
   inactive:	{inactive};
 
-  roundness:            {roundness};
-  radius:               {radius};
+  roundness:            {roundness}px;
+  radius:               {radius}px;
 
   background:						@color0;
   foreground:						@color15;

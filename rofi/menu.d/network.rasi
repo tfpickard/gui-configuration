@@ -1,0 +1,14 @@
+@import "./config.rasi"
+
+@theme "/dev/null"
+@import "../themes/colors.rasi"
+@import "../menu-conf.rasi"
+
+window {
+  location: north east;
+  width: 30%;
+  x-offset: 0%;
+  y-offset: 0;
+  height: 70%;
+}
+

@@ -6,6 +6,14 @@ check() {
 rootmgr="sudo"
 check doas && rootmgr="doas"
 
+notify() {
+	check notify-send && {
+		notify-send "$@"
+	} || {
+		echo "$@"
+	}
+}
+
 # There are three states in this (savermode, default, performance)
 # savermode: make auto-cpufreq on powersave (cpugoverner), hyprland config to reduce battery consumtion (optional)
 #   TODO: addition of Core Ctrl battery management
@@ -52,11 +60,11 @@ getdata() {
 		glory=$(hyprctl getoption animations:enabled | awk 'NR==2{print $2}')
 		tooltip+="<b>Hyprland:\n</b>"
 		[ "$glory" -eq 1 ] && glory="enabled" || glory="disabled"
-		tooltip+="Glory Stuff: $glory\n"
+		tooltip+="  Glory Stuff: $glory\n"
 	}
 	check auto-cpufreq && {
 		state="$(auto-cpufreq --get-state)"
-		tooltip+="<b>Auto Cpufreq:\n</b>auto-cpufreq: $state"
+		tooltip+="<b>Auto Cpufreq:\n</b>  auto-cpufreq: $state"
 	}
 	class="$state"
 	cat <<EOF
@@ -64,17 +72,55 @@ getdata() {
 EOF
 }
 
-[[ "$1" = *"save"* ]] && {
-	savermode
-	pkill -SIGRTMIN+5 waybar
-}
-[[ "$1" = *"default"* ]] && {
-	default
-	pkill -SIGRTMIN+5 waybar
-}
-[[ "$1" = *"performance"* ]] && {
-	performance
-	pkill -SIGRTMIN+5 waybar
+# [[ "$1" = *"save"* ]] && {
+# 	savermode
+# 	pkill -SIGRTMIN+5 waybar
+# }
+# [[ "$1" = *"default"* ]] && {
+# 	default
+# 	pkill -SIGRTMIN+5 waybar
+# }
+# [[ "$1" = *"performance"* ]] && {
+# 	performance
+# 	pkill -SIGRTMIN+5 waybar
+# }
+
+[[ "$1" = *"rofi"* ]] && {
+	state="$(auto-cpufreq --get-state)"
+	arr=("Default" "Powersave" "Performance")
+	str=""
+	for i in "${arr[@]}"; do
+		if [[ "${i,,}" = "$state" ]]; then
+			str+=" $i\n"
+		else
+			str+="$i\n"
+		fi
+	done
+	str=${str::-2}
+	choice=$(echo -e "$str" | rofi -dmenu -l 3 -config ~/.config/rofi/menu.d/battery.rasi)
+	case $choice in
+	Powersave)
+		savermode
+		pkill -SIGRTMIN+5 waybar
+		notify "Battery Saver" "Switched to Saving Mode"
+		# eval "$0 rofi"
+		;;
+	Performance)
+		performance
+		pkill -SIGRTMIN+5 waybar
+		notify "Battery Saver" "Switched to Performance Mode"
+		# eval "$0 rofi"
+		;;
+	Default)
+		default
+		pkill -SIGRTMIN+5 waybar
+		notify "Battery Saver" "Switched to Default Mode"
+		# eval "$0 rofi"
+		;;
+	*)
+		exit 0
+		;;
+	esac
 }
 [[ "$1" = *"getdata"* ]] && {
 	getdata

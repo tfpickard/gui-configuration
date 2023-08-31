@@ -6,7 +6,6 @@
     "custom/batterysaver",
     "memory",
     "disk",
-    "cava",
     "cpu",
     "custom/cputemp"
   ],
@@ -49,28 +48,6 @@
     "format": " | {percentage_used}% ",
     "path": "/"
   },
-  "cava": {
-    //        "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
-    "framerate": 30,
-    "autosens": 1,
-    "sensitivity": 100,
-    "bars": 14,
-    "lower_cutoff_freq": 50,
-    "higher_cutoff_freq": 10000,
-    "method": "pipewire",
-    "source": "auto",
-    "stereo": true,
-    "reverse": false,
-    "bar_delimiter": 0,
-    "monstercat": false,
-    "waves": false,
-    "noise_reduction": 0.77,
-    "input_delay": 2,
-    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
-    "actions": {
-      "on-click-right": "mode"
-    }
-  },
   "cpu": {
     "format": " | {usage}% ",
     "on-click": "foot btop"
@@ -110,7 +87,7 @@
     "status-icons": {
       "paused": "⏸"
     },
-    "ignored-players": ["firefox", "kdeconnect"]
+    "ignored-players": ["youtube-music", "firefox", "kdeconnect"]
   },
   "network": {
     "format-wifi": "  {bandwidthDownBits} |",

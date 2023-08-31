@@ -1,4 +1,4 @@
-ignore-empty-password
+#ignore-empty-password
 font=Ubuntu
 
 clock

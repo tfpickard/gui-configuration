@@ -23,7 +23,7 @@ check slurp || {
 
 dir="$HOME/Pictures/Screenrecordings"
 [ -d "$dir" ] || mkdir -p "$dir"
-filename="$dir/$(date +%Y-%m-%d-%H-%M-%S).mkv"
+filename="$dir/$(date +%Y-%m-%d-%H-%M-%S).mp4"
 
 pgrep -x wf-recorder &>/dev/null && {
 	killall -q wf-recorder && notify "wf-recorder stopped"

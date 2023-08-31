@@ -1,3 +1,4 @@
+#ignore-empty-password
 font=Ubuntu
 
 clock
@@ -16,33 +17,33 @@ indicator-radius=150
 indicator-thickness=2
 indicator-caps-lock
 
-key-hl-color=465173
+key-hl-color=546ea7
 
 separator-color=00000000
 
 inside-color=0d0d1266
-inside-clear-color=95d1dd66
-inside-caps-lock-color=465173
-inside-ver-color=9C7292
+inside-clear-color=bfcef166
+inside-caps-lock-color=546ea7
+inside-ver-color=6A8AD1
 inside-wrong-color=ee2e2400
 
-ring-color=30384f
-ring-clear-color=30384f
-ring-caps-lock-color=C8B569
-ring-ver-color=95d1dd
+ring-color=3a4b72
+ring-clear-color=3a4b72
+ring-caps-lock-color=5E7ABC
+ring-ver-color=bfcef1
 ring-wrong-color=231f20D9
 
 line-color=00000000
-line-clear-color=30384f
-line-caps-lock-color=465173
-line-ver-color=F5768E
+line-clear-color=3a4b72
+line-caps-lock-color=546ea7
+line-ver-color=789DEE
 line-wrong-color=ee2e24FF
 
-text-clear-color=30384f
-text-ver-color=95d1dd
+text-clear-color=3a4b72
+text-ver-color=bfcef1
 text-wrong-color=ee2e2400
 
-bs-hl-color=95d1dd
+bs-hl-color=bfcef1
 caps-lock-key-hl-color=ffd204FF
 caps-lock-bs-hl-color=ee2e24FF
 disable-caps-lock-text
