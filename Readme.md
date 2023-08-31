@@ -35,8 +35,11 @@ With Hyprland,Waybar and foot terminal
 ### Rofi
 
 I use rofi with waybar to interact with my waybar custom modules Like (cpu freq and notification)
-![preview](./extra/.extra-gui/assets/waybar-rofi.png)
 ![preview](./extra/.extra-gui/assets/rofi-only.png)
+![preview](./extra/.extra-gui/assets/waybar-rofi.png)
+
+### Rofi on Faded Color
+
 ![preview](./extra/.extra-gui/assets/rofi-full.png)
 ![preview](./extra/.extra-gui/assets/rofi-powermenu.png)
 
