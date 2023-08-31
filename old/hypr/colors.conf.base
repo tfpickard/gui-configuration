@@ -1,6 +1,0 @@
-$foreground={foreground.strip}
-$background={background.strip}
-$active={active.strip}
-$inactive={inactive.strip}
-$cursor={cursor.strip}
-$font={font}

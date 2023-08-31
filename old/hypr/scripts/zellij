@@ -1,1 +1,0 @@
-zellij --session $USER a || zellij --session $USER
