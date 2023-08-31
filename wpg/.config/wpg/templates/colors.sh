@@ -1,29 +1,29 @@
 # Shell variables
 
 # Special
-background=#12121d
-foreground=#ded0cf
-cursor=#ded0cf
-active=#594b72
+background=#0f131b
+foreground=#c7c1cd
+cursor=#c7c1cd
+active=#454e61
 font=JetBrainsMono Nerd Font
 gtktheme=linea-nord-color
 icontheme=flattrcolor
 cursortheme=GoogleDot-Black
 
 # Colors
-color0=#12121d
-color1=#705E8F
-color2=#906489
-color3=#DA798D
-color4=#62A5E7
-color5=#4BC5EF
-color6=#AF95AC
-color7=#ded0cf
-color8=#9b9190
-color9=#705E8F
-color10=#906489
-color11=#DA798D
-color12=#62A5E7
-color13=#4BC5EF
-color14=#AF95AC
-color15=#ded0cf
+color0=#0f131b
+color1=#57627A
+color2=#9E6575
+color3=#5B7291
+color4=#977891
+color5=#6C8FAE
+color6=#7CACC3
+color7=#c7c1cd
+color8=#8b878f
+color9=#57627A
+color10=#9E6575
+color11=#5B7291
+color12=#977891
+color13=#6C8FAE
+color14=#7CACC3
+color15=#c7c1cd
