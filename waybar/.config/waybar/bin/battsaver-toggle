@@ -97,7 +97,7 @@ EOF
 		fi
 	done
 	str=${str::-2}
-	choice=$(echo -e "$str" | rofi -dmenu -l 3 -config ~/.config/rofi/menu.d/battery.rasi)
+	choice=$(echo -e "$str" | rofi -dmenu -i -l 3 -config ~/.config/rofi/menu.d/battery.rasi)
 	case $choice in
 	Powersave)
 		savermode

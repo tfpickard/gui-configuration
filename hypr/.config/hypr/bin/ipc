@@ -14,11 +14,10 @@ check socat || {
 
 handle() {
 	echo "$line"
-
 	if [[ ${1:0:12} == "monitoradded" ]]; then
 		"$HOME/.config/hypr/bin/monitor"
 	fi
-  if [[ ${1:0:14} == "monitorremoved" ]]; then
+	if [[ ${1:0:14} == "monitorremoved" ]]; then
 		"$HOME/.config/hypr/bin/monitor"
 	fi
 }

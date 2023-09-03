@@ -6,17 +6,12 @@
 
 window {
   location: north west;
-  width: 12%;
+  width: 8%;
   x-offset: 0%;
   y-offset: 0;
-  height: 6em;
-}
-box {
-  padding: 0px;
-  spacing: 0.1em;
-  children: [ listview ];
+  height: 10em;
 }
 
 listview, element, element selected, element-text, element-icon {
-  padding: 4px;
+  padding: 4px 0px;
 }

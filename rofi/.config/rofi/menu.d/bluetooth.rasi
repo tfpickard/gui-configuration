@@ -9,7 +9,7 @@ window {
   width: 30%;
   x-offset: 0%;
   y-offset: 0;
-  height: 60%;
+  height: 40%;
 }
 
 listview, element, element selected, element-text, element-icon {

@@ -3,7 +3,7 @@ font=Ubuntu
 
 clock
 timestr=%R
-datestr=%a, %e of %B
+datestr=%a,%e of %b
 
 screenshots
 
