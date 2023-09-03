@@ -1,7 +1,10 @@
 {
   "layer": "top",
   "position": "top",
-  "output": ["eDP-1", "DP-1"],
+  "output": [
+    "eDP-1",
+    "DP-1"
+  ],
   "modules-left": [
     "group/batteries",
     "clock",
@@ -9,7 +12,12 @@
     "wlr/workspaces"
   ],
   "modules-center": [],
-  "modules-right": ["tray", "group/scroll", "group/scripts", "group/hardware"],
+  "modules-right": [
+    "tray",
+    "group/scroll",
+    "group/scripts",
+    "group/hardware"
+  ],
   "wlr/workspaces": {
     "active-only": false,
     "all-outputs": false,
@@ -38,11 +46,18 @@
   },
   "group/scroll": {
     "orientation": "horizontal",
-    "modules": ["pulseaudio#mic", "pulseaudio", "backlight"]
+    "modules": [
+      "pulseaudio#mic",
+      "pulseaudio",
+      "backlight"
+    ]
   },
   "group/batteries": {
     "orientation": "horizontal",
-    "modules": ["battery", "custom/batterysaver"]
+    "modules": [
+      "battery",
+      "custom/batterysaver"
+    ]
   },
   "group/scripts": {
     "orientation": "horizontal",
@@ -61,7 +76,13 @@
   },
   "group/hardware": {
     "orientation": "horizontal",
-    "modules": ["network", "memory", "disk", "cpu", "custom/cputemp"]
+    "modules": [
+      "network",
+      "memory",
+      "disk",
+      "cpu",
+      "custom/cputemp"
+    ]
   },
   "pulseaudio#mic": {
     "format": "{format_source}",
@@ -82,7 +103,10 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["", ""]
+      "default": [
+        "",
+        ""
+      ]
     },
     "on-click": "~/.config/waybar/bin/audio-channel",
     "on-click-middle": "pavucontrol",
@@ -134,7 +158,17 @@
     "format": "{capacity}% {icon}",
     "format-charging": "<b>{icon} </b>",
     "format-full": "<span color='#00ff00'><b>{icon}</b></span> {capacity}%",
-    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
     "tooltip-format": "{timeTo}\n{capacity} % | {power} W"
   },
   "custom/batterysaver": {
@@ -246,6 +280,15 @@
         "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
       }
     }
+  },
+  "custom/recorder": {
+    "format": "{}",
+    "interval": "once",
+    "exec": "echo ''",
+    "tooltip": "false",
+    "exec-if": "pgrep 'wf-recorder'",
+    "on-click": "exec $HOME/.config/waybar/bin/recorder",
+    "signal": 4
   },
   "bluetooth": {
     "format-on": "",

@@ -1,5 +1,13 @@
 # GUI Config
 
+[![License](https://img.shields.io/github/license/niksingh710/gui-configuration?color=blue)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/niksingh710/gui-configuration?style=social)](https://github.com/niksingh710/gui-configuration/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/niksingh710/gui-configuration?style=social)](https://github.com/niksingh710/gui-configuration/network/members)
+[![GitHub repo size](https://img.shields.io/github/repo-size/niksingh710/gui-configuration)](https://github.com/niksingh710/gui-configuration)
+[![GitHub last commit](https://img.shields.io/github/last-commit/niksingh710/gui-configuration)](https://github.com/niksingh710/gui-configuration/commits/master)
+[![GitHub issues](https://img.shields.io/github/issues/niksingh710/gui-configuration)](https://github.com/niksingh710/gui-configuration/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/niksingh710/gui-configuration)](https://github.com/niksingh710/gui-configuration/pulls)
+
 This is my Arch Linux GUI Config and Scripts.
 I use [rofi](https://github.com/lbonn/rofi) as my application launcher, and [Hyprland](https://github.com/hyprwm/hyprland) as my window manager.
 
@@ -56,3 +64,7 @@ Make sure to have beta sideberry with it's css also in extra/chrome/sideberry.cs
 
 xstow links to the parent dir (make sure to read help)
 keep in mind to give the args `-t ~` no matter where you are cloning
+
+# MAYBE
+if only using fzf.zsh or a single module and keymaps not working then you must be using `zsh-vi-mode`
+check [this](https://github.com/jeffreytse/zsh-vi-mode#execute-extra-commands)

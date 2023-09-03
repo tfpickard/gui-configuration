@@ -93,6 +93,10 @@ tooltip {
   color: shade(#7aa2f7, 0.8);
 }
 
+#custom-recorder {
+  color: #d78787;
+}
+
 #cpu {
   color: shade(#a6e3a1, 0.8);
 }
@@ -146,6 +150,8 @@ tooltip {
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
+
+#custom-recorder,
 #bluetooth.connected {
   background: shade(alpha(@foreground, 0.1), 0.8);
   border-radius: 8px;

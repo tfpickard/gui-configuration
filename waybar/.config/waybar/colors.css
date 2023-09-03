@@ -1,23 +1,23 @@
-@define-color foreground #87c7d3;
-@define-color background #0c0d12;
-@define-color cursor #87c7d3;
-@define-color active #48343f;
+@define-color foreground #e5e0dc;
+@define-color background #0d0e0d;
+@define-color cursor #e5e0dc;
+@define-color active #428a7f;
 
-@define-color color0 #0c0d12;
-@define-color color1 #2E3549;
-@define-color color2 #0B4E67;
-@define-color color3 #5B424F;
-@define-color color4 #B74242;
-@define-color color5 #CD9756;
-@define-color color6 #106E90;
-@define-color color7 #87c7d3;
-@define-color color8 #5e8b93;
-@define-color color9 #2E3549;
-@define-color color10 #0B4E67;
-@define-color color11 #5B424F;
-@define-color color12 #B74242;
-@define-color color13 #CD9756;
-@define-color color14 #106E90;
-@define-color color15 #87c7d3;
+@define-color color0 #0d0e0d;
+@define-color color1 #388D53;
+@define-color color2 #448E52;
+@define-color color3 #53AD9F;
+@define-color color4 #5BC0BC;
+@define-color color5 #57C5D1;
+@define-color color6 #ACBEC0;
+@define-color color7 #e5e0dc;
+@define-color color8 #a09c9a;
+@define-color color9 #388D53;
+@define-color color10 #448E52;
+@define-color color11 #53AD9F;
+@define-color color12 #5BC0BC;
+@define-color color13 #57C5D1;
+@define-color color14 #ACBEC0;
+@define-color color15 #e5e0dc;
 
 
